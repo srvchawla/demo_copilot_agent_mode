@@ -43,20 +43,24 @@ There are also task definitions and launch profiles:
 
 ### **MCP Server install and config (optional)**
 
-> You can skip the MCP Server demos if you want to, so this is optional.
+> You can skip the MCP Server demos if you want to, so this is optional. Also, you can run the GitHub MCP Server demo just fine in a Codespace, but will need Docker (or Podman or equivalent) to run the GitHub MCP Server locally. Also, the Playwright MCP Server demo will not work in a Codespace since it has to open a browser.
 
-If you are wanting to show MCP server integration, you will need to set up and configure the MCP servers _prior_ to the demo. I have included the necessary `mcp` config in the [devcontainer.json](../.devcontainer/devcontainer.json) file, but you may have to copy/paste this to your user config if you are running this locally and not in a Codespace. You will need a PAT for the GitHub MCP server.
+If you are wanting to show MCP server integration, you will need to set up and configure the MCP servers _prior_ to the demo. I have included the necessary `mcp` config in the [devcontainer.json](../.devcontainer/devcontainer.json) file. Copy the entire `mcp` section into your VSCode config file, then continue to start the servers as follows:
 
 #### Start the Playwright MCP Server
 - Use the cmd palette `Cmd/Ctrl + Shift + P` -> `MCP: List servers` -> `playwright` -> `Start server`
 
 ##### Start the GitHub MCP Server
-- This server runs via Docker image, so you will need Docker to be installed and running before starting this server. I use Podman on my Mac.
-- Use the cmd palette `Cmd/Ctrl + Shift + P` -> `MCP: List servers` -> `github` -> `Start server`. The first time you run this, you will have to supply a PAT.
 
 > Generate a fine-grained PAT that has permissions to read/write Issues and PRs, context and whatever other features you want to demo. You can create this at the org/repo level. I suggest creating a PAT and storing it in a key vault (or 1Password) so that you have it handy.
 
+- This server runs via Docker image, so you will need Docker to be installed and running before starting this server. I use Podman on my Mac.
+- Use the cmd palette `Cmd/Ctrl + Shift + P` -> `MCP: List servers` -> `github` -> `Start server`. The first time you run this, you will have to supply a PAT.
+
+> **Pro tip:** If you want to change the PAT, open the Settings json file. You will see `"id": "github_token" = ****` in the `input` section. Right-click on the `***` section to edit or clear the cached token. (The `***` is a GUI feature - the value is not actually stored in the json file)
+
 ### **Demo: Using Vision and Agent to Generate Cart Functionality**  
+
 - **What to show:** "Vibe coding" using Agent Mode and Vision to complete complex tasks.
 - **Why:** Demonstrate how Copilot Vision can detect design and how Agent can understand a codebase and create complex changes over multiple files.
 - **How:**  
@@ -77,6 +81,7 @@ If you are wanting to show MCP server integration, you will need to set up and c
   1. Go back to the Frontend app. Navigate to Products. Show adding items to the cart (note the icon updating). Click on the Cart icon to navigate to the Cart page. Show the total, and adding/removing items from the cart.
 
 ### **Demo: MCP Servers - Playwright**  
+
 - **What to show:** Launch browser navigation using Playwright MPC server to show functional testing from natural language. Show integration to GitHub via the GitHub MCP server.
 - **Why:** Demonstrate support for extending Copilot capabilities using MCP server protocol.
 - **How:**  
@@ -87,6 +92,7 @@ If you are wanting to show MCP server integration, you will need to set up and c
   1. (Optional): Ask Copilot `to generate headless Playwright tests for the .feature file`
 
 ### **Demo: MCP Servers - GitHub**  
+
 - **What to show:** Interact with GitHub from Chat.
 - **Why:** Demonstrate support for extending Copilot capabilities using MCP server protocol as well as the GitHub MCP server.
 - **How:**  
@@ -99,6 +105,7 @@ If you are wanting to show MCP server integration, you will need to set up and c
   1. (Optional): Assign the issue to Copilot to queue off Padawan!
 
 ### **Demo: Enhancing Unit Tests and Coverage**  
+
 - **What to show:** Copilot generating a multiple tests, exucuting them, analyzing coverage and self-healing.
 - **Why:** Show Copilot’s ability to quickly and easily generate tests, validate them, self-heal and analyze coverage.
 - **How:**  
@@ -109,6 +116,7 @@ If you are wanting to show MCP server integration, you will need to set up and c
   1. Ask Copilot to `add tests for the Product route` to show generation of new tests
 
 ### **Demo: Automating Deployment with Docker & GitHub Actions**  
+
 - **What to show:** Copilot generating Actions files.
 - **Why:** Show Copilot’s ability to automate CI/CD workflows.
 - **How:**  
@@ -121,6 +129,7 @@ If you are wanting to show MCP server integration, you will need to set up and c
   1. Show the generated infra-as-code files
 
 ### **Demo: Custom instructions**
+
 - **What to show:** Copilot’s **Custom instructions** feature.
 - **Why:** Demonstrate that Copilot can be customized and personalized, including internal libraries that do not exist in the foundational models.
 - **How:**  
@@ -141,6 +150,7 @@ If you are wanting to show MCP server integration, you will need to set up and c
   1. Show the changes - note that _this will not compile_ since TAO doesn't really exist!
   
 ### **Demo: Copilot and App Security**
+
 - **What to show:** Copilot’s ability to understand and remediate security vulnerabilities
 - **Why:** Demonstrate that Copilot can be used to scale AppSec by bringing security expertise to Developers directly.
 - **How:**  
@@ -156,6 +166,7 @@ If you are wanting to show MCP server integration, you will need to set up and c
   1. (Optional with GitHub MCP Server): Ask Copilot to `create an issue to fix ...` and select a vulnerability for Copilot to create an Issue
 
 ### **Demo: GHAS and Autofix**
+
 - **What to show:** GHAS Autofix (our first platform AI agent)
 - **Why:** Demonstrate that Autofix is built into the platform using Copilot.
 - **How:**  
@@ -165,7 +176,8 @@ If you are wanting to show MCP server integration, you will need to set up and c
   1. Show how you can Chat about this vulnerability and fix in Chat
 
 ## **Key Takeaways for Customers**  
-- **Agent Mode handles multi-step changes across multiple files** — saving time.
-- **Vision enables Copilot to understand images**  
-- **Command execution allows Copilot to self-heal and run commands**  
-- **MCP support extends Copilot with additional capabilities**
+
+- Agent Mode handles multi-step changes across multiple files — saving time.
+- Vision enables Copilot to understand images
+- Command execution allows Copilot to self-heal and run commands
+- MCP support extends Copilot with additional capabilities (and gracefully handles credentials without having to hard-code tokens!)
