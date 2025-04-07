@@ -1,153 +1,104 @@
-# Demo of GitHub Copilot Agent Mode
+# 🚀 OctoCAT Supply Chain: The Ultimate GitHub Copilot Demo
 
-This project is set up to demo various GitHub Copilot features, including:
-- agent mode
-- vision
-- Next Edit Suggestion (NES)
+![OctoCAT Supply Chain](./frontend/public/hero.png)
 
-Instructions for how to demo are located in the [demo script](./docs/demo-script.md).
+Welcome to the OctoCAT Supply Chain Management System - your go-to demo for showcasing the incredible capabilities of GitHub Copilot, GHAS, and the power of AI-assisted development!
 
-# TypeScript API Project
+## ✨ What Makes This Demo Special
 
-This project provides a set of CRUD APIs for managing various entities as defined in the  [Entity-Relationship Diagram](./ERD.png). The entities include Supplier, Delivery, Order Detail Delivery, Product, Order Detail, Order, Branch, and Headquarters.
+This isn't just another demo app - it's a carefully crafted showcase that demonstrates the full spectrum of GitHub's AI capabilities:
 
-## Getting Started
+- 🤖 **Copilot Agent Mode & Vision** - Watch Copilot understand UI designs and implement complex features across multiple files
+- 🎭 **MCP Server Integration** - Demonstrate extended capabilities with Playwright for testing and GitHub API integration
+- 🛡️ **Security First** - Showcase GHAS scanning and Copilot-powered vulnerability fixes
+- 🧪 **Test Generation** - Exhibit Copilot's ability to analyze coverage and generate meaningful tests
+- 🔄 **CI/CD & IaC** - Generate deployment workflows and infrastructure code with natural language
+- 🎯 **Custom Instructions** - Show how Copilot can be tailored to understand internal frameworks and standards
 
-### Prerequisites
+## 🏗️ Architecture
 
-- Node.js (v14 or later)
-- yarn (v1.22.10 or later)
+The application is built using modern TypeScript with a clean separation of concerns:
 
-### Installation
-
-1. Clone the repository:
-   ```sh
-   git clone https://github.com/colindembovsky/ts-api.git
-   cd ts-api
-   ```
-
-2. Install dependencies:
-   ```sh
-   yarn install
-   ```
-
-3. Build the project:
-   ```sh
-   yarn run build
-   ```
-
-4. Start the server:
-   ```sh
-   yarn start
-   ```
-
-   Alternatively, you can start the server in development mode:
-   ```sh
-   yarn run dev
-   ```
-
-### API Endpoints
-
-The following endpoints are available for each entity:
-
-#### Supplier
-
-- `POST /api/suppliers`: Create a new supplier
-- `GET /api/suppliers`: Get all suppliers
-- `GET /api/suppliers/:id`: Get a supplier by ID
-- `PUT /api/suppliers/:id`: Update a supplier by ID
-- `DELETE /api/suppliers/:id`: Delete a supplier by ID
-
-#### Delivery
-
-- `POST /api/deliveries`: Create a new delivery
-- `GET /api/deliveries`: Get all deliveries
-- `GET /api/deliveries/:id`: Get a delivery by ID
-- `PUT /api/deliveries/:id`: Update a delivery by ID
-- `DELETE /api/deliveries/:id`: Delete a delivery by ID
-
-#### Order Detail Delivery
-
-- `POST /api/order-detail-deliveries`: Create a new order detail delivery
-- `GET /api/order-detail-deliveries`: Get all order detail deliveries
-- `GET /api/order-detail-deliveries/:id`: Get an order detail delivery by ID
-- `PUT /api/order-detail-deliveries/:id`: Update an order detail delivery by ID
-- `DELETE /api/order-detail-deliveries/:id`: Delete an order detail delivery by ID
-
-#### Product
-
-- `POST /api/products`: Create a new product
-- `GET /api/products`: Get all products
-- `GET /api/products/:id`: Get a product by ID
-- `PUT /api/products/:id`: Update a product by ID
-- `DELETE /api/products/:id`: Delete a product by ID
-
-#### Order Detail
-
-- `POST /api/order-details`: Create a new order detail
-- `GET /api/order-details`: Get all order details
-- `GET /api/order-details/:id`: Get an order detail by ID
-- `PUT /api/order-details/:id`: Update an order detail by ID
-- `DELETE /api/order-details/:id`: Delete an order detail by ID
-
-#### Order
-
-- `POST /api/orders`: Create a new order
-- `GET /api/orders`: Get all orders
-- `GET /api/orders/:id`: Get an order by ID
-- `PUT /api/orders/:id`: Update an order by ID
-- `DELETE /api/orders/:id`: Delete an order by ID
-
-#### Branch
-
-- `POST /api/branches`: Create a new branch
-- `GET /api/branches`: Get all branches
-- `GET /api/branches/:id`: Get a branch by ID
-- `PUT /api/branches/:id`: Update a branch by ID
-- `DELETE /api/branches/:id`: Delete a branch by ID
-
-#### Headquarters
-
-- `POST /api/headquarters`: Create a new headquarters
-- `GET /api/headquarters`: Get all headquarters
-- `GET /api/headquarters/:id`: Get a headquarters by ID
-- `PUT /api/headquarters/:id`: Update a headquarters by ID
-- `DELETE /api/headquarters/:id`: Delete a headquarters by ID
-
-### Example Requests
-
-Here are some example requests you can use to test the APIs:
-
-#### Create a new supplier
-
-```sh
-curl -X POST http://localhost:3000/api/suppliers -H "Content-Type: application/json" -d '{"deliveryId": 1, "deliveryDate": "2023-01-01", "supplierId": 1}'
+```mermaid
+erDiagram
+    Headquarters ||--o{ Branch: has
+    Branch ||--o{ Order: placed_at
+    Order ||--o{ OrderDetail: contains
+    OrderDetail ||--o{ OrderDetailDelivery: fulfilled_by
+    OrderDetail }|--|| Product: references
+    Delivery ||--o{ OrderDetailDelivery: includes
+    Supplier ||--o{ Delivery: provides
 ```
 
-#### Get all suppliers
+### Tech Stack
+- **Frontend**: React 18+, TypeScript, Tailwind CSS, Vite
+- **Backend**: Express.js, TypeScript, OpenAPI/Swagger
+- **DevOps**: Docker
 
-```sh
-curl http://localhost:3000/api/suppliers
-```
+## 🎯 Key Demo Scenarios
 
-#### Get a supplier by ID
+1. **Vibe Coding**
+   - Implement a shopping cart from a design mockup
+   - Watch Copilot analyze, plan, and implement across multiple files
+   - Show real-time UI updates and state management
 
-```sh
-curl http://localhost:3000/api/suppliers/1
-```
+2. **Automated Testing**
+   - Generate BDD feature files
+   - Create and execute Playwright tests
+   - Enhance unit test coverage with intelligent test generation
 
-#### Update a supplier by ID
+3. **Security and Best Practices**
+   - Scan for vulnerabilities using GHAS
+   - Generate automated fixes
+   - Implement security best practices with Copilot guidance
 
-```sh
-curl -X PUT http://localhost:3000/api/suppliers/1 -H "Content-Type: application/json" -d '{"deliveryId": 1, "deliveryDate": "2023-01-02", "supplierId": 1}'
-```
+4. **DevOps Automation**
+   - Generate GitHub Actions workflows
+   - Create infrastructure as code
+   - Set up container deployments
 
-#### Delete a supplier by ID
+## 🚀 Getting Started
 
-```sh
-curl -X DELETE http://localhost:3000/api/suppliers/1
-```
+1. Clone this repository
+2. Build the projects:
+   ```bash
+   # Build API
+   cd api && npm install && npm run build
 
-### License
+   # Build Frontend
+   cd ../frontend && npm install && npm run build
+   ```
+3. Start the application:
+   ```bash
+   cd ../api && npm run start:install
+   ```
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+Or use the VS Code tasks:
+- `Cmd/Ctrl + Shift + P` -> `Run Task` -> `Build All`
+- Use the Debug panel to run `Start API & Frontend`
+
+## 🛠️ MCP Server Setup (Optional)
+
+To showcase extended capabilities:
+
+1. Install Docker/Podman for the GitHub MCP server
+2. Use VS Code command palette:
+   - `MCP: List servers` -> `playwright` -> `Start server`
+   - `MCP: List servers` -> `github` -> `Start server`
+3. Configure with a GitHub PAT (required for GitHub MCP server)
+
+## 📚 Documentation
+
+- [Detailed Architecture](./docs/architecture.md)
+- [Complete Demo Script](./docs/demo-script.md)
+
+## 🎓 Pro Tips for Solution Engineers
+
+- Practice the demos before customer presentations
+- Remember Copilot is non-deterministic - be ready to adapt
+- Mix and match demo scenarios based on your audience
+- Keep your GitHub PAT handy for MCP demos
+
+---
+
+*This entire project, including the hero image, was created using GitHub Copilot! Even this README was generated by Copilot using the project documentation.* 🤖✨

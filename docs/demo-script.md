@@ -21,6 +21,7 @@ This demo app can be used to show a number of Copilot features:
 - **Why:** Demonstrate how Copilot can analyze and enhance existing code automatically, understand images, vulnerabilities and testing and how you can extend Copilot's capabilities with MCP server.
 - **Demos**: You don't have to do all these demos, or do them in order. Get comfortable with the scenarios and practice them and then mix/match according to your audience.
 - **MCP Servers**: The GitHub MCP server runs via Docker. You will need to install Docker locally to run it (it should work fine in a Codespace automatically). I use Podman for my Mac. Install this _before_ you attempt this demo! You'll also need a PAT that has enough permissions for your demos. Details below.
+- **Padawan**: If you want to use Padawan, you have to ensure that it is enabled on the repo, that Actions are enabled and that you have a branch protection rule for `main`. I recommend creating a PR required for changes to Default branch with 1 required reviewer.
 - **Local vs Codespaces:**  
   - This demo can work in a Codespace - but some scenarios (like running Playwright tests) require that you work in a local VSCode (clone the repo locally)
   - Make sure you **PRACTICE** this demo _before_ trying it in front of customers
@@ -55,7 +56,7 @@ If you are wanting to show MCP server integration, you will need to set up and c
 
 > Generate a fine-grained PAT that has permissions to read/write Issues and PRs, context and whatever other features you want to demo. You can create this at the org/repo level. I suggest creating a PAT and storing it in a key vault (or 1Password) so that you have it handy.
 
-### **Demo 1: Using Vision and Agent to Generate Cart Functionality**  
+### **Demo: Using Vision and Agent to Generate Cart Functionality**  
 - **What to show:** "Vibe coding" using Agent Mode and Vision to complete complex tasks.
 - **Why:** Demonstrate how Copilot Vision can detect design and how Agent can understand a codebase and create complex changes over multiple files.
 - **How:**  
@@ -75,15 +76,29 @@ If you are wanting to show MCP server integration, you will need to set up and c
   1. Accept Copilot’s suggested fixes.
   1. Go back to the Frontend app. Navigate to Products. Show adding items to the cart (note the icon updating). Click on the Cart icon to navigate to the Cart page. Show the total, and adding/removing items from the cart.
 
-### **Demo 2: MCP Servers**  
+### **Demo: MCP Servers - Playwright**  
 - **What to show:** Launch browser navigation using Playwright MPC server to show functional testing from natural language. Show integration to GitHub via the GitHub MCP server.
 - **Why:** Demonstrate support for extending Copilot capabilities using MCP server protocol.
 - **How:**  
-  1. Ask Copilot to `add name and description properties to all entities`.
-  1. Show how it modifies multiple files simultaneously.
-  1. Accept the changes.
+  1. Ask Copilot to `generate a BDD .feature file for testing the Cart functionality and the icon. do not generate test automaion - just the feature file`.
+  1. Show how it creates a meaningful test feature file.
+  1. Ask Copilot to browse to `http://localhost:5137` and execute the test steps from the `.feature` file
+  1. Accept the Playwright command requests and show Copilot "running" the test.
+  1. (Optional): Ask Copilot `to generate headless Playwright tests for the .feature file`
 
-### **Demo 3: Enhancing Unit Tests and Coverage**  
+### **Demo: MCP Servers - GitHub**  
+- **What to show:** Interact with GitHub from Chat.
+- **Why:** Demonstrate support for extending Copilot capabilities using MCP server protocol as well as the GitHub MCP server.
+- **How:**  
+  1. Switch to Agent mode
+  1. Ask Copilot to `check which issues are assigned to me in the repo`. 
+  1. Note: you may have to expand the args (using the `>` symbol`) and ensure that the org/repo name are correct! You can edit them if they are not.
+  1. Show how Copilot fetched issues (or shows there are no issues)
+  1. Ask Copilot to `create an Issue for enhancing test coverage in the API project and assign it to me`. (Don't forget to check the owner/repo in the args!)
+  1. Show how Copilot creates a new Issue with a meaningful description and labels
+  1. (Optional): Assign the issue to Copilot to queue off Padawan!
+
+### **Demo: Enhancing Unit Tests and Coverage**  
 - **What to show:** Copilot generating a multiple tests, exucuting them, analyzing coverage and self-healing.
 - **Why:** Show Copilot’s ability to quickly and easily generate tests, validate them, self-heal and analyze coverage.
 - **How:**  
@@ -93,7 +108,7 @@ If you are wanting to show MCP server integration, you will need to set up and c
   1. Accept the changes
   1. Ask Copilot to `add tests for the Product route` to show generation of new tests
 
-### **Demo 4: Automating Deployment with Docker & GitHub Actions**  
+### **Demo: Automating Deployment with Docker & GitHub Actions**  
 - **What to show:** Copilot generating Actions files.
 - **Why:** Show Copilot’s ability to automate CI/CD workflows.
 - **How:**  
@@ -105,7 +120,7 @@ If you are wanting to show MCP server integration, you will need to set up and c
   1. Ask Copilot to `generate Terraform files for running the apps in Azure` (or AWS)
   1. Show the generated infra-as-code files
 
-### **Demo 5: Custom instructions**
+### **Demo: Custom instructions**
 - **What to show:** Copilot’s **Custom instructions** feature.
 - **Why:** Demonstrate that Copilot can be customized and personalized, including internal libraries that do not exist in the foundational models.
 - **How:**  
@@ -125,14 +140,22 @@ If you are wanting to show MCP server integration, you will need to set up and c
   1. Ask Copilot to `add observability to the Supplier route`.
   1. Show the changes - note that _this will not compile_ since TAO doesn't really exist!
   
-### **Demo 6: Copilot and App Security**
+### **Demo: Copilot and App Security**
 - **What to show:** Copilot’s ability to understand and remediate security vulnerabilities
 - **Why:** Demonstrate that Copilot can be used to scale AppSec by bringing security expertise to Developers directly.
 - **How:**  
   1. Open Copilot Chat and switch to `Ask` mode.
   1. Ask Copilot to `analyze @workspace and check if there are obvious security vulnerabilities`
+  1. You should see issues like:
+    - Cross-site Scripting (XSS) vulnerability
+    - Command Injection Vulnerability
+    - Insecure CORS Configuration
+    - Missing Security Headers
+    - Insecure Authentication Implementation
+  1. Chat with Copilot to address one of these issues: `generate a fix for ...`
+  1. (Optional with GitHub MCP Server): Ask Copilot to `create an issue to fix ...` and select a vulnerability for Copilot to create an Issue
 
-### **Demo 7: GHAS and Autofix**
+### **Demo: GHAS and Autofix**
 - **What to show:** GHAS Autofix (our first platform AI agent)
 - **Why:** Demonstrate that Autofix is built into the platform using Copilot.
 - **How:**  
@@ -143,6 +166,6 @@ If you are wanting to show MCP server integration, you will need to set up and c
 
 ## **Key Takeaways for Customers**  
 - **Agent Mode handles multi-step changes across multiple files** — saving time.
-- **Vision enables Copilot to understand images and auto-generate missing parts.**  
-- **Command execution allows Copilot to install dependencies and configure projects.**  
-- **Next Edit Suggestions streamlines work.**
+- **Vision enables Copilot to understand images**  
+- **Command execution allows Copilot to self-heal and run commands**  
+- **MCP support extends Copilot with additional capabilities**
