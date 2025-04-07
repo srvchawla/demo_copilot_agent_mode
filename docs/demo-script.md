@@ -15,9 +15,11 @@ This demo app can be used to show a number of Copilot features:
 - **Infrastructure as Code**: generate Bicep or Terraform files for publishing
 - **Padawan (SWE Agent)**: You can also ask Copilot to code via Padawan for some of the above scenarios by logging issues and assigning them to Copilot
 
-### **Setting Up the Demo**
-- **What to show:** A TypeScript API and Frontend (React) project that you will enhance with Copilot Agent Mode and Vision.
+### **About Up the Demo**
+
+- **About the App:** This is a modern TypeScript web-app with separate API and Frontend (React) projects that you will enhance with Copilot Agent Mode, Vision, MCP Servers and GHAS/Actions.
 - **Why:** Demonstrate how Copilot can analyze and enhance existing code automatically, understand images, vulnerabilities and testing and how you can extend Copilot's capabilities with MCP server.
+- **Demos**: You don't have to do all these demos, or do them in order. Get comfortable with the scenarios and practice them and then mix/match according to your audience.
 - **MCP Servers**: The GitHub MCP server runs via Docker. You will need to install Docker locally to run it (it should work fine in a Codespace automatically). I use Podman for my Mac. Install this _before_ you attempt this demo! You'll also need a PAT that has enough permissions for your demos. Details below.
 - **Local vs Codespaces:**  
   - This demo can work in a Codespace - but some scenarios (like running Playwright tests) require that you work in a local VSCode (clone the repo locally)
@@ -38,7 +40,9 @@ There are also task definitions and launch profiles:
 - **Build**: Hit `Cmd/Ctrl + Shift + P -> Run Task -> Build All`
 - **Run/debug**: Click on the Debug panel, select the `Start API & Frontend` target and click start
 
-### **MCP Server install and config**
+### **MCP Server install and config (optional)**
+
+> You can skip the MCP Server demos if you want to, so this is optional.
 
 If you are wanting to show MCP server integration, you will need to set up and configure the MCP servers _prior_ to the demo. I have included the necessary `mcp` config in the [devcontainer.json](../.devcontainer/devcontainer.json) file, but you may have to copy/paste this to your user config if you are running this locally and not in a Codespace. You will need a PAT for the GitHub MCP server.
 
@@ -79,53 +83,32 @@ If you are wanting to show MCP server integration, you will need to set up and c
   1. Show how it modifies multiple files simultaneously.
   1. Accept the changes.
 
-### **Step 4: Running Terminal Commands & Generating Swagger API Docs**  
-- **What to show:** Using Copilot Agent Mode to add Swagger packages and config.
-- **Why:** Demonstrate how Copilot can execute commands as part of its flow.
+### **Demo 3: Enhancing Unit Tests and Coverage**  
+- **What to show:** Copilot generating a multiple tests, exucuting them, analyzing coverage and self-healing.
+- **Why:** Show Copilot’s ability to quickly and easily generate tests, validate them, self-heal and analyze coverage.
 - **How:**  
-  1. Ask Copilot to `install Swagger packages and configure API docs for the supplier entity`  
-  1. Show how Copilot:  
-     - Suggests a command and waits for confirmation.
-     - Executes it in the terminal.
-     - Updates `index.ts` with Swagger config and generates API docs.
-  1. You might need to explicitly ask for the JSON schema defnition of the Supplier entity: `Add the swagger schema definition for the Supplier entity`. 
-  1. Run `npm dev`, open `localhost:3000/api/docs`, and show the Swagger UI.
-  1. Click on the `/get` route and execute, showing returning of an emtpy array `[]`
+  1. Ask Copilot to `run tests, analyze coverage and add missing Branch tests to include tests for untested scenarios`
+  1. Show Agent working on the tests and adding new tests for the API Branch route
+  1. Show Copilot "self-healing" (if tests fail)
+  1. Accept the changes
+  1. Ask Copilot to `add tests for the Product route` to show generation of new tests
 
-### **Step 5: Fixing API Route Issues (only if the above step fails when retrieving the list of entities)**
-- **What to show:** Copilot fixing an incorrect API route (`/api/api`).
-- **Why:** Demonstrate Copilot’s ability to debug and correct issues in real time.
+### **Demo 4: Automating Deployment with Docker & GitHub Actions**  
+- **What to show:** Copilot generating Actions files.
+- **Why:** Show Copilot’s ability to automate CI/CD workflows.
 - **How:**  
-  1. Run an API request and show the incorrect `/api/api` route.
-  1. Ask Copilot to `fix the Swagger route configuration to remove duplicate /api/api`.
-  1. Accept the fix, restart the app, and verify the correct behavior in the Swagger UI.
+  1. Ask Copilot to `Create a GitHub Actions workflow for building the containers. Use the GitHub package registry to publish the containers.`
+  1. Show generated files:  
+     - GitHub Actions YAML to build & push the image to GHCR
+  1. Accept the changes
+  1. Commit and push to see the pipeline execution
+  1. Ask Copilot to `generate Terraform files for running the apps in Azure` (or AWS)
+  1. Show the generated infra-as-code files
 
-### **Step 6: Automating Deployment with Docker & GitHub Actions**  
-- **What to show:** Copilot generating a Dockerfile and CI/CD workflow.
-- **Why:** Show Copilot’s ability to automate deployment setup.
-- **How:**  
-  1. Ask Copilot to `Create a Dockerfile for an Alpine container add a GitHub Actions workflow for building the container. Use the GitHub package registry to publish the container.`
-  2. Show generated files:  
-     - `Dockerfile` with correct settings.
-     - `.dockerignore` for clean builds.
-     - GitHub Actions YAML to build & push the image to GHCR.
-  3. Accept the changes.
-  4. Commit and push to see the pipeline execution 
-
-### **Step 7: Agent Mode Test Generation**  
-- **What to show:** Copilot generating a multiple tests, exucuting them and self-healing.
-- **Why:** Show Copilot’s ability to quickly and easily generate tests and validate.
-- **How:**  
-  1. Ask Copilot to `ensure all entities and routes are tested`
-  2. Show generated files tests.
-  3. Show Copilot "self-healing" (if tests fail)
-  3. Accept the changes.
-
-### **Step 8: Custom instructions**
+### **Demo 5: Custom instructions**
 - **What to show:** Copilot’s **Custom instructions** feature.
 - **Why:** Demonstrate that Copilot can be customized and personalized, including internal libraries that do not exist in the foundational models.
 - **How:**  
-  1. Delete the Supplier route file [src/routes/supplier.ts](src/routes/supplier.ts) if it exists
   1. Create an empty file: `.github/copilot-instructions.md`
   1. Enter the following content:
     ```markdown
@@ -139,18 +122,24 @@ If you are wanting to show MCP server integration, you will need to set up and c
       - assume TAO is installed and never add the package
     ```
   1. Mention how there are best practices as well as a doc reference to the TAO framework (a fictional library). Open the [TAO](./tao.md) doc to show the library.
-  1. Ask Copilot: `Add the Supplier route`.
+  1. Ask Copilot to `add observability to the Supplier route`.
   1. Show the changes - note that _this will not compile_ since TAO doesn't really exist!
   
-### **Step 9: Next Edit Suggestions for Refactoring Code**  
-- **What to show:** Copilot’s **Next Edit Suggestions** feature.
-- **Why:** Demonstrate that Copilot can anticipate your next actions.
+### **Demo 6: Copilot and App Security**
+- **What to show:** Copilot’s ability to understand and remediate security vulnerabilities
+- **Why:** Demonstrate that Copilot can be used to scale AppSec by bringing security expertise to Developers directly.
 - **How:**  
-  1. Create a `point.ts` file with a `Point` class.
-  1. Fill out the code using Code Completion till you have some properties and methods.
-  1. Change `class Point` to `class Point3D` and let **Next Edit Suggestions** take over.
-  1. Show how **Next Edit Suggestions** proposes changes step by step.
-  1. Accept changes incrementally by pressing **Tab** until completion.
+  1. Open Copilot Chat and switch to `Ask` mode.
+  1. Ask Copilot to `analyze @workspace and check if there are obvious security vulnerabilities`
+
+### **Demo 7: GHAS and Autofix**
+- **What to show:** GHAS Autofix (our first platform AI agent)
+- **Why:** Demonstrate that Autofix is built into the platform using Copilot.
+- **How:**  
+  1. Open the repo, navigate to settings and enable Code scanning
+  1. The scan should return at least 1 vulnerability
+  1. Show "Generate fix" and how that can auto-generate a fix
+  1. Show how you can Chat about this vulnerability and fix in Chat
 
 ## **Key Takeaways for Customers**  
 - **Agent Mode handles multi-step changes across multiple files** — saving time.
