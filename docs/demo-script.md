@@ -65,6 +65,8 @@ If you are wanting to show MCP server integration, you will need to set up and c
 - **Why:** Demonstrate how Copilot Vision can detect design and how Agent can understand a codebase and create complex changes over multiple files.
 - **How:**  
   1. Run the App to show the original code. Once the site starts, click on "Products" in the NavBar and show the Product Page. Add an item to the Cart - note that nothing actually happens, except a message saying, "Added to Cart". Explain that there is no Cart in the frontend app currently.
+  1. (OPTIONAL if you have the GitHub MCP Server configured): Ask Copilot to `create an issue in my repo to implement the Cart page and Cart icon`
+  1. Show the issue in the repo
   1. Open Copilot and switch to "Ask" mode. Select `Claude 3.7 Sonnet Thinking` to demonstrate a thinking/planning phase and model selector.
   1. Attach the [cart image](../docs/design/cart.png) using the paperclip icon or drag/drop to add it to the chat.
   1. Enter the following prompt:
@@ -91,7 +93,7 @@ If you are wanting to show MCP server integration, you will need to set up and c
   1. Accept the Playwright command requests and show Copilot "running" the test.
   1. (Optional): Ask Copilot `to generate headless Playwright tests for the .feature file`
 
-### **Demo: MCP Servers - GitHub**  
+### **Demo: MCP Servers - GitHub (Optional)**  
 
 - **What to show:** Interact with GitHub from Chat.
 - **Why:** Demonstrate support for extending Copilot capabilities using MCP server protocol as well as the GitHub MCP server.
