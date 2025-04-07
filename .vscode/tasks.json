@@ -1,0 +1,34 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build All",
+            "dependsOrder": "sequence",
+            "dependsOn": ["Build API", "Build Frontend"],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "Build API",
+            "type": "shell",
+            "command": "cd ${workspaceFolder}/api && npm install && npm run build",
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            },
+            "problemMatcher": ["$tsc"]
+        },
+        {
+            "label": "Build Frontend",
+            "type": "shell",
+            "command": "cd ${workspaceFolder}/frontend && npm install && npm run build",
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            },
+            "problemMatcher": ["$tsc"]
+        }
+    ]
+}

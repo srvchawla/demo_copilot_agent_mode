@@ -1,34 +1,79 @@
-# **GitHub Copilot Agent Mode & Vision Demo**
+# **GitHub Copilot Agent Mode & MCP Demo**
 
-### **Step 1: Setting Up the Demo**
-- **What to show:** A TypeScript API project that you will enhance with Copilot Agent Mode and Vision.
-- **Why:** Demonstrate how Copilot can analyze and enhance existing code automatically.
-- **How:**  
-  - Open the repo in a Codespace.
-  - You will have to use **VS Code Insiders** Version to enable the preview features of this demo - check _before_ you demo.
-  - To access the Insiders Version in the web-version of a Codespace, click on the gear-icon on the bottom-left and select `Switch to Insiders Version...`
+This demo app can be used to show a number of Copilot features:
+
+- **Agent Mode and Vision**: generate a fairly complex UI updated (add the Cart functionality to the site) all with a natural language prompt and an image
+- **Unit Testing**: run and generate unit tests to improve coverage
+- **MCP Server**: 
+  - generate a `.feature` file (Behaviour Driven Development/Tesing file)and use Playwright to launch a browser and test the scenario
+  - Interact with GitHub via the GitHub MCP server
+- **Custom instructions**: personalize how Copilot responds by pointing to a fictional private observability framework that Copilot can work with, even though it is not a public library
+- **Security**: 
+  - Enable GHAS scans on the repo, and after finding a vulnerability, generate an autofix
+  - Ask GitHub to find vulnerabilities in the code, then explain and fix them
+- **Actions**: generate Actions workflows for deploy/publish
+- **Infrastructure as Code**: generate Bicep or Terraform files for publishing
+- **Padawan (SWE Agent)**: You can also ask Copilot to code via Padawan for some of the above scenarios by logging issues and assigning them to Copilot
+
+### **Setting Up the Demo**
+- **What to show:** A TypeScript API and Frontend (React) project that you will enhance with Copilot Agent Mode and Vision.
+- **Why:** Demonstrate how Copilot can analyze and enhance existing code automatically, understand images, vulnerabilities and testing and how you can extend Copilot's capabilities with MCP server.
+- **MCP Servers**: The GitHub MCP server runs via Docker. You will need to install Docker locally to run it (it should work fine in a Codespace automatically). I use Podman for my Mac. Install this _before_ you attempt this demo! You'll also need a PAT that has enough permissions for your demos. Details below.
+- **Local vs Codespaces:**  
+  - This demo can work in a Codespace - but some scenarios (like running Playwright tests) require that you work in a local VSCode (clone the repo locally)
+  - Make sure you **PRACTICE** this demo _before_ trying it in front of customers
+  - Remember, Copilot is non-deterministic so you can't always predict exact behavior. Make sure you are comfortable with this environment so you can pivot quicky!
+  - You don't have to use **VS Code Insiders** Version unless you want to demo features that you know are in preview.
+    - If you want to access the Insiders Version in the web-version of a Codespace, click on the gear-icon on the bottom-left and select `Switch to Insiders Version...`
 
   ![Switch to Insiders](./vscode-switch-to-insiders.png)
 
-### **Step 2: Using Vision to Validate Code Against an ERD**  
-- **What to show:** Using an image (ERD) to check the completeness of the generated code.
-- **Why:** Demonstrate how Copilot Vision can detect missing entities and relationships from a diagram.
-- **How:**  
-  1. Open Edits and switch to Agent mode
-  1. Attach `ERD.jpg` image using the paperclip icon.
-  1. Put in the following prompt:
-     ```txt
-     First, look at the ERD Diagram and list out all the Entities, Attributes and Relationships you find in there.
-     Second, look at the current implementation and validate that all the Entities, their Attributes and Relationships are correctly implemented. 
-     ```
-  1. Highlight that it detects missing entities (e.g., `supplier`) and relationships (`branch ID` missing in `headquarters`).
-  1. Ask Copilot to `add missing routes for all entities` and show it adding a new route.
-  1. Make sure the route is exposed in `index.ts`: <br> ```app.use('/api/suppliers', supplierRoutes);```
-  1. Accept Copilot’s suggested fixes.
+### **Building, Running and Debugging the code**
 
-### **Step 3: Enhancing Entities with Name & Description**  
-- **What to show:** Automatically adding missing properties (`name` and `description`) to entities.
-- **Why:** Demonstrate Copilot’s ability to make multiple changes at one time.
+There is a detailed overview of the arcitecture [here](./architecture.md). Make sure to familiarize yourself with the architecture.
+
+To build the application, you need to run `npm install && npm build` in both the [API](../api/) folder and the [Frontend](../frontend/) folder. Then you can run `npm run start:install` in the API folder to run both the API and the frontend together.
+
+There are also task definitions and launch profiles:
+- **Build**: Hit `Cmd/Ctrl + Shift + P -> Run Task -> Build All`
+- **Run/debug**: Click on the Debug panel, select the `Start API & Frontend` target and click start
+
+### **MCP Server install and config**
+
+If you are wanting to show MCP server integration, you will need to set up and configure the MCP servers _prior_ to the demo. I have included the necessary `mcp` config in the [devcontainer.json](../.devcontainer/devcontainer.json) file, but you may have to copy/paste this to your user config if you are running this locally and not in a Codespace. You will need a PAT for the GitHub MCP server.
+
+#### Start the Playwright MCP Server
+- Use the cmd palette `Cmd/Ctrl + Shift + P` -> `MCP: List servers` -> `playwright` -> `Start server`
+
+##### Start the GitHub MCP Server
+- This server runs via Docker image, so you will need Docker to be installed and running before starting this server. I use Podman on my Mac.
+- Use the cmd palette `Cmd/Ctrl + Shift + P` -> `MCP: List servers` -> `github` -> `Start server`. The first time you run this, you will have to supply a PAT.
+
+> Generate a fine-grained PAT that has permissions to read/write Issues and PRs, context and whatever other features you want to demo. You can create this at the org/repo level. I suggest creating a PAT and storing it in a key vault (or 1Password) so that you have it handy.
+
+### **Demo 1: Using Vision and Agent to Generate Cart Functionality**  
+- **What to show:** "Vibe coding" using Agent Mode and Vision to complete complex tasks.
+- **Why:** Demonstrate how Copilot Vision can detect design and how Agent can understand a codebase and create complex changes over multiple files.
+- **How:**  
+  1. Run the App to show the original code. Once the site starts, click on "Products" in the NavBar and show the Product Page. Add an item to the Cart - note that nothing actually happens, except a message saying, "Added to Cart". Explain that there is no Cart in the frontend app currently.
+  1. Open Copilot and switch to "Ask" mode. Select `Claude 3.7 Sonnet Thinking` to demonstrate a thinking/planning phase and model selector.
+  1. Attach the [cart image](../docs/design/cart.png) using the paperclip icon or drag/drop to add it to the chat.
+  1. Enter the following prompt:
+    ```txt
+    First, look at the Cart design and the code for the Frontend app. Plan what changes you will need to implement to create the a Cart Page. I also want a Cart icon in the NavBar that shows the number of items in the Cart. Ignore the discount shown on the image. Do not change and code.
+    ```
+  1. Highlight that Copilot has suggested changes and planned the components to add/modify.
+  1. Switch to "Agent" mode in Copilot Chat. Switch to `Claude 3.5 Sonnet` (a good implementation model) and enter this prompt:
+    ```txt
+    Implement the changes.
+    ```
+  1. Show Copilot's changes and how you can see each one and Keep/reject each one.
+  1. Accept Copilot’s suggested fixes.
+  1. Go back to the Frontend app. Navigate to Products. Show adding items to the cart (note the icon updating). Click on the Cart icon to navigate to the Cart page. Show the total, and adding/removing items from the cart.
+
+### **Demo 2: MCP Servers**  
+- **What to show:** Launch browser navigation using Playwright MPC server to show functional testing from natural language. Show integration to GitHub via the GitHub MCP server.
+- **Why:** Demonstrate support for extending Copilot capabilities using MCP server protocol.
 - **How:**  
   1. Ask Copilot to `add name and description properties to all entities`.
   1. Show how it modifies multiple files simultaneously.
