@@ -62,15 +62,12 @@ erDiagram
 1. Clone this repository
 2. Build the projects:
    ```bash
-   # Build API
-   cd api && npm install && npm run build
-
-   # Build Frontend
-   cd ../frontend && npm install && npm run build
+   # Build API and Frontend
+   npm install && npm run build
    ```
 3. Start the application:
    ```bash
-   cd ../api && npm run start:install
+   npm run dev
    ```
 
 Or use the VS Code tasks:

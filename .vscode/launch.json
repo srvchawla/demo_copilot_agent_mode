@@ -5,9 +5,9 @@
             "type": "node",
             "request": "launch",
             "name": "Start API & Frontend",
-            "cwd": "${workspaceFolder}/api",
+            "cwd": "${workspaceFolder}",
             "runtimeExecutable": "npm",
-            "runtimeArgs": ["run", "start:all"],
+            "runtimeArgs": ["run", "dev"],
             "console": "integratedTerminal"
         }
     ]
