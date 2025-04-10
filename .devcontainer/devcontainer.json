@@ -78,7 +78,7 @@
 			}
 		}
 	},
-	"postCreateCommand": "npm install -g concurrently && cd api && npm ci && cd ../frontend && npm run build",
+	"postCreateCommand": "npm install -g concurrently && npm run build",
 	"hostRequirements": {
 		"cpus": 4,
 		"memory": "8gb"
