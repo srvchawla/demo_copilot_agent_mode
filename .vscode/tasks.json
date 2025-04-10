@@ -4,7 +4,11 @@
         {
             "label": "Build All",
             "dependsOrder": "sequence",
-            "dependsOn": ["Build API", "Build Frontend"],
+            "command": "npm",
+            "args": ["run", "build"],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
             "group": {
                 "kind": "build",
                 "isDefault": true
@@ -13,7 +17,10 @@
         {
             "label": "Build API",
             "type": "shell",
-            "command": "cd ${workspaceFolder}/api && npm install && npm run build",
+            "command": "npm run build",
+            "options": {
+                "cwd": "${workspaceFolder}/api"
+            },
             "presentation": {
                 "reveal": "always",
                 "panel": "shared"
@@ -23,7 +30,11 @@
         {
             "label": "Build Frontend",
             "type": "shell",
-            "command": "cd ${workspaceFolder}/frontend && npm install && npm run build",
+            "command": "npm",
+            "args": ["run", "build"],
+            "options": {
+                "cwd": "${workspaceFolder}/frontend"
+            },
             "presentation": {
                 "reveal": "always",
                 "panel": "shared"

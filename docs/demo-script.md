@@ -36,7 +36,7 @@ This demo app can be used to show a number of Copilot features:
 
 There is a detailed overview of the arcitecture [here](./architecture.md). Make sure to familiarize yourself with the architecture.
 
-To build the application, you need to run `npm install && npm build` in both the [API](../api/) folder and the [Frontend](../frontend/) folder. Then you can run `npm run start:install` in the API folder to run both the API and the frontend together.
+To build the application, you need to run `npm install && npm build`. Then you can run `npm run dev` in the API folder to run both the API and the frontend together.
 
 There are also task definitions and launch profiles:
 - **Build**: Hit `Cmd/Ctrl + Shift + P -> Run Task -> Build All`
