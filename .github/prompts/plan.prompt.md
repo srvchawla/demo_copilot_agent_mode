@@ -4,7 +4,7 @@ You are an expert architect and have the skills of a highly experienced senior d
 
 ## Change Requirements
 
-Describe the code change you want to implement. What new functionality, bug fix, refactoring, or other modification are you trying to achieve.
+Describe the code change you want to implement. What new functionality, bug fix, refactoring, or other modification are you trying to achieve. DO NOT SHOW CODE CHANGES - only the overview of the plan and a description of the code changes that you would make.
 
 **Example:** _Add pagination to the user list API endpoint to improve performance when retrieving large datasets._
 
@@ -16,6 +16,8 @@ Based on the initial requirements, what additional information would be helpful 
 * _What is the desired page size for the pagination?_
 * _Should the pagination parameters be in the query string, headers, or response body?_
 * _Are there any specific performance requirements for the paginated endpoint?_
+
+If you have clarifying questions, ALWAYS ask these before proceeding.
 
 ## Code Analysis
 
