@@ -36,7 +36,7 @@ This demo app can be used to show a number of Copilot features:
 
 There is a detailed overview of the arcitecture [here](./architecture.md). Make sure to familiarize yourself with the architecture.
 
-To build the application, you need to run `npm install && npm build`. Then you can run `npm run dev` in the API folder to run both the API and the frontend together.
+To build the application, you need to run `npm install && npm build` in both the [API](../api/) folder and the [Frontend](../frontend/) folder. Then you can run `npm run start:install` in the API folder to run both the API and the frontend together.
 
 There are also task definitions and launch profiles:
 - **Build**: Hit `Cmd/Ctrl + Shift + P -> Run Task -> Build All`
@@ -60,6 +60,20 @@ If you are wanting to show MCP server integration, you will need to set up and c
 
 > **Pro tip:** If you want to change the PAT, open the Settings json file. You will see `"id": "github_token" = ****` in the `input` section. Right-click on the `***` section to edit or clear the cached token. (The `***` is a GUI feature - the value is not actually stored in the json file)
 
+### **Demo: Prompt Files**
+- **What to show:** Reusing prompts to streamline AI-native workflow
+- **Why:** Demonstrate how Copilot and VSCode use prompts to help streamline AI-native workflows and keep developers in the flow.
+- **How:**  
+  1. Show the [model.prompt.md](../.github/prompts/model.prompt.md) file in the prompts directory. Note that it has a URL reference to the official GitHub docs!
+  1. Open Copilot Chat
+  1. Hit `Cmd/Ctrl P` -> `Chat: Use prompt` -> `model`
+  1. Enter this prompt:
+    ```txt
+    Help me select the best model for adding a cart icon and simple cart page to the frontend
+    ```
+  1. Show at the output
+  1. **Note:** You don't have to use the models suggested - just explain that you always have a choice!
+
 ### **Demo: Using Vision and Agent to Generate Cart Functionality**  
 
 - **What to show:** "Vibe coding" using Agent Mode and Vision to complete complex tasks.
@@ -68,13 +82,14 @@ If you are wanting to show MCP server integration, you will need to set up and c
   1. Run the App to show the original code. Once the site starts, click on "Products" in the NavBar and show the Product Page. Add an item to the Cart - note that nothing actually happens, except a message saying, "Added to Cart". Explain that there is no Cart in the frontend app currently.
   1. (OPTIONAL if you have the GitHub MCP Server configured): Ask Copilot to `create an issue in my repo to implement the Cart page and Cart icon`
   1. Show the issue in the repo
-  1. Open Copilot and switch to "Ask" mode. Select `Claude 3.7 Sonnet Thinking` to demonstrate a thinking/planning phase and model selector.
+  1. Open Copilot and switch to "Ask" mode. Add the `plan` prompt to the chat.
   1. Attach the [cart image](../docs/design/cart.png) using the paperclip icon or drag/drop to add it to the chat.
   1. Enter the following prompt:
     ```txt
-    First, look at the Cart design and the code for the Frontend app. Plan what changes you will need to implement to create the a Cart Page. I also want a Cart icon in the NavBar that shows the number of items in the Cart. Ignore the discount shown on the image. Do not change and code.
+    I need to implement a simple Cart Page. I also want a Cart icon in the NavBar that shows the number of items in the Cart.
     ```
-  1. Highlight that Copilot has suggested changes and planned the components to add/modify.
+  1. Highlight that Copilot has suggested changes and planned the components to add/modify and even asked clarifying questions.
+  1. Answer some of the questions if you want to refine the plan.
   1. Switch to "Agent" mode in Copilot Chat. Switch to `Claude 3.5 Sonnet` (a good implementation model) and enter this prompt:
     ```txt
     Implement the changes.
@@ -88,9 +103,10 @@ If you are wanting to show MCP server integration, you will need to set up and c
 - **What to show:** Launch browser navigation using Playwright MPC server to show functional testing from natural language. Show integration to GitHub via the GitHub MCP server.
 - **Why:** Demonstrate support for extending Copilot capabilities using MCP server protocol.
 - **How:**  
-  1. Ask Copilot to `generate a BDD .feature file for testing the Cart functionality and the icon. do not generate test automaion - just the feature file`.
+  1. Add the `feature` prompt to the Chat.
+  1. Ask Copilot to `generate tests for the Cart functionality and the icon`.
   1. Show how it creates a meaningful test feature file.
-  1. Ask Copilot to browse to `http://localhost:5137` and execute the test steps from the `.feature` file
+  1. Ask Copilot to `browse to http://localhost:5137 and execute the test steps`
   1. Accept the Playwright command requests and show Copilot "running" the test.
   1. (Optional): Ask Copilot `to generate headless Playwright tests for the .feature file`
 
