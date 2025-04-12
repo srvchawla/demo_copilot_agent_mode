@@ -25,7 +25,8 @@
 				"GitHub.copilot",
 				"GitHub.copilot",
 				"ms-vscode.extension-test-runner",
-				"vitest.explorer"
+				"vitest.explorer",
+				"ms-vscode.vscode-speech"
 			],
 			"settings": {
 				"editor.inlineSuggest.experimentalInlineEditsEnabled": true,
