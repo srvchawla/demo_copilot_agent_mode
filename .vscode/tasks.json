@@ -17,9 +17,10 @@
         {
             "label": "Build API",
             "type": "shell",
-            "command": "npm run build",
+            "command": "npm",
+            "args": ["run", "build", "--workspace=api"],
             "options": {
-                "cwd": "${workspaceFolder}/api"
+                "cwd": "${workspaceFolder}"
             },
             "presentation": {
                 "reveal": "always",
@@ -31,9 +32,9 @@
             "label": "Build Frontend",
             "type": "shell",
             "command": "npm",
-            "args": ["run", "build"],
+            "args": ["run", "build", "--workspace=frontend"],
             "options": {
-                "cwd": "${workspaceFolder}/frontend"
+                "cwd": "${workspaceFolder}"
             },
             "presentation": {
                 "reveal": "always",
