@@ -26,7 +26,8 @@
 				"GitHub.copilot",
 				"ms-vscode.extension-test-runner",
 				"vitest.explorer",
-				"ms-vscode.vscode-speech"
+				"ms-vscode.vscode-speech",
+				"Blodwynn.featurehighlight"
 			],
 			"settings": {
 				"editor.inlineSuggest.experimentalInlineEditsEnabled": true,
@@ -42,40 +43,7 @@
 				"github.copilot.chat.completionContext.typescript.mode": "on",
 				"github.copilot.chat.languageContext.typescript.enabled": true,
 				"github.copilot.nextEditSuggestions.enabled": true,
-				"github.copilot.chat.editor.temporalContext.enabled": true,
-				"mcp": {
-					"inputs": [
-						{
-							"id": "github_token",
-							"type": "promptString",
-							"description": "GitHub Personal Access Token",
-							"password": true
-						}
-					],
-					"servers": {
-						"playwright": {
-							"command": "npx",
-							"args": [
-								"@playwright/mcp@latest",
-								"--browser=msedge"
-							]
-						},
-						"github": {
-							"command": "docker",
-							"args": [
-								"run",
-								"-i",
-								"--rm",
-								"-e",
-								"GITHUB_PERSONAL_ACCESS_TOKEN",
-								"ghcr.io/github/github-mcp-server"
-							],
-							"env": {
-								"GITHUB_PERSONAL_ACCESS_TOKEN": "${input:github_token}"
-							}
-						}
-					}
-				}
+				"github.copilot.chat.editor.temporalContext.enabled": true
 			}
 		}
 	},
