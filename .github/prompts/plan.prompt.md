@@ -28,6 +28,7 @@ Analyze the relevant existing code, focusing on:
 * Key classes, functions, or modules affected
 * Relevant packages or dependencies
 * Current test coverage
+* For UI changes, always use [React 19](https://react.dev/blog/2024/12/05/react-19)
 
 ### Impact Analysis
 
