@@ -27,7 +27,8 @@
 				"ms-vscode.extension-test-runner",
 				"vitest.explorer",
 				"ms-vscode.vscode-speech",
-				"Blodwynn.featurehighlight"
+				"Blodwynn.featurehighlight",
+				"bierner.markdown-mermaid"
 			],
 			"settings": {
 				"editor.inlineSuggest.experimentalInlineEditsEnabled": true,

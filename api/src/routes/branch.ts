@@ -107,6 +107,11 @@ const router = express.Router();
 
 let branches: Branch[] = [...seedBranches];
 
+// Add reset function for testing
+export const resetBranches = () => {
+  branches = [...seedBranches];
+};
+
 // Create a new branch
 router.post('/', (req, res) => {
   const newBranch: Branch = req.body;
