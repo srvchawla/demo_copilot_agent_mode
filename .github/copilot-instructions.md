@@ -8,7 +8,7 @@ The complete architecture is described in the [Architecture Document](../docs/ar
 
 Refer to [build instructions](../docs/build.md) for detailed build instructions.
 
-Every time you change the code, make sure that the code compiltes by running:
+Every time you change the code, make sure that the code compiles by running:
 
 ```bash
 npm run build
