@@ -34,21 +34,20 @@ This demo app can be used to show a number of Copilot features:
 
 ### **Building, Running and Debugging the code**
 
-There is a detailed overview of the arcitecture [here](./architecture.md). Make sure to familiarize yourself with the architecture.
-
-To build the application, you need to run `npm install && npm build` in both the [API](../api/) folder and the [Frontend](../frontend/) folder. Then you can run `npm run start:install` in the API folder to run both the API and the frontend together.
-
-There are also task definitions and launch profiles:
-- **Build**: Hit `Cmd/Ctrl + Shift + P -> Run Task -> Build All`
-- **Run/debug**: Click on the Debug panel, select the `Start API & Frontend` target and click start
+Refer to [the build docs](./build.md).
 
 ### **MCP Server install and config (optional)**
 
 > You can skip the MCP Server demos if you want to, so this is optional. Also, you can run the GitHub MCP Server demo just fine in a Codespace, but will need Docker (or Podman or equivalent) to run the GitHub MCP Server locally. Also, the Playwright MCP Server demo will not work in a Codespace since it has to open a browser.
 
-If you are wanting to show MCP server integration, you will need to set up and configure the MCP servers _prior_ to the demo. I have included the necessary `mcp` config in the [devcontainer.json](../.devcontainer/devcontainer.json) file. Copy the entire `mcp` section into your VSCode config file, then continue to start the servers as follows:
+If you are wanting to show MCP server integration, you will need to set up and configure the MCP servers _prior_ to the demo. I have included the necessary `mcp` config in the [mcp.json](../.vscode/mcp.json) file. Open the file and use the HUD display above the servers to start them:
+
+![](./mcp.png)
+
+You can also use the Command Palette to start the MCP servers.
 
 #### Start the Playwright MCP Server
+
 - Use the cmd palette `Cmd/Ctrl + Shift + P` -> `MCP: List servers` -> `playwright` -> `Start server`
 
 ##### Start the GitHub MCP Server
