@@ -33,7 +33,7 @@ export const products: Product[] = [
         productId: 1,
         supplierId: 1,
         name: "PowerTool Pro X1",
-        description: "High-performance powertool",
+        description: "High performance power tool with advanced features like smart sensors and ergonomic design.",
         price: 1299.99,
         sku: "PWR-001",
         unit: "piece",
@@ -43,7 +43,7 @@ export const products: Product[] = [
         productId: 2,
         supplierId: 1,
         name: "Webcam Pro",
-        description: "Ergonomic webcam",
+        description: "Ergonomic webcam with 4K resolution and built-in AI features like auto-framing and background blur.",
         price: 49.99,
         sku: "WEB-001",
         unit: "piece",
@@ -53,21 +53,131 @@ export const products: Product[] = [
         productId: 3,
         supplierId: 2,
         name: "Rugged Hard Drive",
-        description: "Advanced storage solution",
+        description: "Advanced storage solution with high durability and fast data transfer speeds, perfect for field agents.",
         price: 99.99,
         sku: "HDD-001",
         unit: "piece",
         imgName: "harddrive.png"
     },
-{
+    {
         productId: 4,
         supplierId: 2,
         name: "Mic Pro",
-        description: "Advanced audio mic",
+        description: "Advanced audio mic with noise cancellation and smart connectivity features, battery power and USB-C charging.",
         price: 29.99,
         sku: "MIC-001",
         unit: "piece",
         imgName: "mic.png"
+    },
+    {
+        productId: 5,
+        supplierId: 1,
+        name: "Smart Worklight",
+        description: "A compact, magnetic LED worklight with motion detection and a green glow mode. Rechargeable with USB-C.",
+        price: 79.99,
+        sku: "LIGHT-001",
+        unit: "piece",
+        imgName: "work-light.png"
+    },
+    {
+        productId: 6,
+        supplierId: 1,
+        name: "Precision Laser Level",
+        description: "Sleek matte device for leveling and measuring in construction or home setups. Includes a green crosshair projection and auto-calibration.",
+        price: 149.99,
+        sku: "LEVEL-001",
+        unit: "piece",
+        imgName: "laser-level.png"
+    },
+    {
+        productId: 7,
+        supplierId: 1,
+        name: "Modular Tool Battery Pack",
+        description: "A universal battery module compatible with Octo Supply power tools and accessories. Features digital readout and neon green charge strip.",
+        price: 89.99,
+        sku: "BAT-001",
+        unit: "piece",
+        imgName: "battery-pack.png"
+    },
+    {
+        productId: 8,
+        supplierId: 2,
+        name: "Autonomous Mini Shop Vac",
+        description: "A smart, tabletop debris collector for small workspaces. Round, industrial look with rubberized base and animated LED feedback.",
+        price: 199.99,
+        sku: "VAC-001",
+        unit: "piece",
+        imgName: "shop-vac.png"
+    },
+    {
+        productId: 9,
+        supplierId: 2,
+        name: "Wearable Field Beacon",
+        description: "A small clip-on wearable device for warehouse or construction crews. GPS-enabled, with safety alerts and NFC sync to Octo Supply systems.",
+        price: 129.99,
+        sku: "BEACON-001",
+        unit: "piece",
+        imgName: "field-beacon.png"
+    },
+    {
+        productId: 10,
+        supplierId: 1,
+        name: "Desk-Edge Utility Arm",
+        description: "Futuristic articulated arm that clamps to a desk, used to hold lights, tools, microphones, or phones. Carbon black finish with green accents.",
+        price: 159.99,
+        sku: "ARM-001",
+        unit: "piece",
+        imgName: "robotic-desk-arm.png"
+    },
+    {
+        productId: 11,
+        supplierId: 1,
+        name: "Smart Tape Measure",
+        description: "Digital tape with a laser pointer, OLED screen, and data logging for dimensions. Auto-syncs to paired devices.",
+        price: 69.99,
+        sku: "TAPE-001",
+        unit: "piece",
+        imgName: "smart-tape-measure.png"
+    },
+    {
+        productId: 12,
+        supplierId: 2,
+        name: "Industrial Label Printer",
+        description: "Compact thermal printer for tool labeling or warehouse tags. Sleek black case with touch interface and lumo green output light.",
+        price: 249.99,
+        sku: "PRINT-001",
+        unit: "piece",
+        imgName: "label-printer.png"
+    },
+    {
+        productId: 13,
+        supplierId: 2,
+        name: "Vibration-Dampening Gloves",
+        description: "Smart gloves with embedded sensors that monitor tool usage and fatigue. Rechargeable and machine-washable.",
+        price: 89.99,
+        sku: "GLOVE-001",
+        unit: "piece",
+        imgName: "gloves.png"
+    },
+    {
+        productId: 14,
+        supplierId: 1,
+        name: "Magnetic Tool Organizer Mat",
+        description: "A flexible surface that holds and charges Octo Supply tools via embedded wireless charging coils. Futuristic surface texture with light indicators.",
+        price: 129.99,
+        sku: "MAT-001",
+        unit: "piece",
+        imgName: "organizer.png"
+    },
+    {
+        productId: 15,
+        supplierId: 2,
+        name: "Smart Cat Toy",
+        description: "A smart cat toy for entertaining your favorite Octocat. Battery powered with interactive features and a neon green glow.",
+        price: 29.99,
+        sku: "CAT-001",
+        unit: "piece",
+        imgName: "cat-toy.png"
     }
 ];
 
