@@ -29,6 +29,10 @@ The ACR resource ID must be correctly calculated in the `main.bicep` file and pa
 
 Configure the Web Apps to use Managed Identity (SystemAssigned) to authenticate to the ACR.
 
+The Bicep may not work, so include a step in the workflow that uses the `az` cli to update the identity to SystemAssigned like this:
+
+`az webapp identity assign --resource-group <group-name> --name <app-name>`
+
 ### Key Resources to Include
 
 1. **Logging**
