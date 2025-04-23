@@ -28,6 +28,15 @@
             "env": {
                 "GITHUB_PERSONAL_ACCESS_TOKEN": "${input:github_token}"
             }
+        },
+        "Azure MCP Server": {
+            "command": "npx",
+            "args": [
+                "-y",
+                "@azure/mcp@latest",
+                "server",
+                "start"
+            ]
         }
     }
 }

@@ -36,6 +36,22 @@ This demo app can be used to show a number of Copilot features:
 
 Refer to [the build docs](./build.md).
 
+### **Full end-to-end Azure Deplyment Demo (optional)**
+
+This demo requires the following:
+- `az cli` and `gh cli` for configuring the Azure environment as well as the repo (Environments and vars, as well as OIDC config)
+- You will need an Azure Subscription, of which you have owner permissions
+- To configure the environment, run `az login` and make sure you have selected the correct subscription.
+- Run the following command: `./infra/configure-deployment.sh <repo-name>` and make sure that it completes successfully. If it does, you will have:
+  - An Azure Service Principal, correctly configured for deployment
+  - 2 Azure Resource Groups (one for Prod and one for Staging)
+  - an Azure Container Registry (in the prod resource group)
+  - 2 Environments in the Repo (Staging, Prod) with manual approval configured on Prod
+  - Actions Variables - all the vars that are needed to run the workflows
+  - OIDC configuration - the script configures OIDC connection for the repo/environments so you don't have to store any secrets in GitHub!
+
+> **Note**: as an alternative, you can just generate the Bicep and Workflow files without actually executing them.
+
 ### **MCP Server install and config (optional)**
 
 > You can skip the MCP Server demos if you want to, so this is optional. Also, you can run the GitHub MCP Server demo just fine in a Codespace, but will need Docker (or Podman or equivalent) to run the GitHub MCP Server locally. Also, the Playwright MCP Server demo will not work in a Codespace since it has to open a browser.
@@ -133,18 +149,20 @@ You can also use the Command Palette to start the MCP servers.
   1. Accept the changes
   1. Ask Copilot to `add tests for the Product route` to show generation of new tests
 
-### **Demo: Automating Deployment with Docker & GitHub Actions**  
+### **Demo: Automating Deployment with GitHub Actions, Azure and Bicep**  
 
-- **What to show:** Copilot generating Actions files.
+- **What to show:** Copilot generating Actions workflows and Infrastructure-as-code.
 - **Why:** Show Copilot’s ability to automate CI/CD workflows.
 - **How:**  
-  1. Ask Copilot to `Create a GitHub Actions workflow for building the containers. Use the GitHub package registry to publish the containers.`
+  1. Ensure that you have run the [configure-deployment.sh](../infra/configure-deployment.sh) script to set up the initial infrastructure and configure the environments and vars in the repo.
+  1. Add the [deployment.md](../docs/deployment.md) file as context.
+  1. Prompt Copilot Agent to `generate bicep files and workflows according to the deployment plan`
   1. Show generated files:  
-     - GitHub Actions YAML to build & push the image to GHCR
+     - GitHub Actions YAML to build & test
+     - GitHub Actions YAML to deploy including an approval step
   1. Accept the changes
   1. Commit and push to see the pipeline execution
-  1. Ask Copilot to `generate Terraform files for running the apps in Azure` (or AWS)
-  1. Show the generated infra-as-code files
+  1. Show the deployment
 
 ### **Demo: Custom instructions**
 

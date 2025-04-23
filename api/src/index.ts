@@ -14,14 +14,21 @@ import supplierRoutes from './routes/supplier';
 const app = express();
 const port = process.env.PORT || 3000;
 
+// Parse CORS origins from environment variable if available
+const corsOrigins = process.env.API_CORS_ORIGINS 
+  ? process.env.API_CORS_ORIGINS.split(',')
+  : [
+      'http://localhost:5137', 
+      'http://localhost:3001',
+      // Allow all Codespace domains
+      /^https:\/\/.*\.app\.github\.dev$/
+    ];
+
+console.log('Configured CORS origins:', corsOrigins);
+
 // Enable CORS for the frontend
 app.use(cors({
-  origin: [
-    'http://localhost:5137', 
-    'http://localhost:3001',
-    // Allow all Codespace domains
-    /^https:\/\/.*\.app\.github\.dev$/
-  ],
+  origin: corsOrigins,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true // Allow credentials
@@ -38,8 +45,12 @@ const swaggerOptions = {
     servers: [
       {
         url: `http://localhost:${port}`,
-        description: 'Development server',
+        description: 'Development server (HTTP)',
       },
+      {
+        url: `https://localhost:${port}`,
+        description: 'Development server (HTTPS)',
+      }
     ],
   },
   apis: ['./src/models/*.ts', './src/routes/*.ts'],
