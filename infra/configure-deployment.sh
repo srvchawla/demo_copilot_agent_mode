@@ -214,6 +214,12 @@ set_github_variable() {
     fi
 }
 
+# enable Compute and Web providers for the subscription
+echo "🏗️ Enabling Web and Compute providers on the subscription"
+az provider register --namespace Microsoft.Compute > /dev/null
+az provider register --namespace Microsoft.Web > /dev/null
+echo "✅ Web and Compute providers enabled"
+
 # Create GitHub environments if they don't exist
 create_github_environment() {
     local env_name=$1
