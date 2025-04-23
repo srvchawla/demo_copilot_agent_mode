@@ -52,6 +52,12 @@ The Bicep setting appears to not work, so include a `run` step in the Actions wo
    - Use `uniqueString()` to add a unique post-fix to the web app names
    - ensure that API_HOST and API_PORT are correctly configured for the frontend deployment
 
+4. **No role assignments**
+   - do not include ACR Pull role assignments - the Service Principal is already configured for this.
+
+5. **Avoid circular assignments**
+   - be careful: the API needs frontend info and vice-versa, so ensure that you account for this and don't end up with circular logic!
+
 ## 2. Important Configuration Points & Gotchas
 
 ### CORS Configuration
