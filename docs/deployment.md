@@ -24,6 +24,10 @@ infra/
 
 The ACR resource ID must be correctly calculated in the `main.bicep` file and passed to the `webapps.bicep` file along with the `acrName`, `imageTag` and other necessary variables. Make sure the location is defaulted to the resource group location for all resources.
 
+#### Outputs
+
+Make sure you output the URL of both the API and Frotend in the `main.bicep` file so that it can be used as an output parameter for the environments in the Actions workflows.
+
 #### Managed Identity
 
 Configure the Web Apps to use Managed Identity (SystemAssigned) to authenticate to the ACR.
