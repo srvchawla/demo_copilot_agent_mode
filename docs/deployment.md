@@ -142,4 +142,10 @@ API_PORT=80
         url: ${{ steps.deploy.outputs.frontendUrl }}
       ```
 
+## 3. IMPORTANT! Final Checks
+- Ensure that the bicep files don't have any unused declarations/varialbes
+- Ensure that the `main.bicep` file outputs the hostnames of the API and the frontend, and that these are used (via `${{ steps.<deploy>.ouputs}}) to set the URL for the environment (ensuring that `https://` is prepended)
+- Ensure that AcrPull role assignment is performed correctly for the Web Apps
+- Ensure that the resources are using the location of the resource group
+
 This plan provides a solid foundation for deploying the OctoCAT Supply Chain Management application to Azure Web Apps using infrastructure as code with Bicep and automated CI/CD with GitHub Actions.
