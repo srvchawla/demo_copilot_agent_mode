@@ -30,19 +30,7 @@ Make sure you output the URL of both the API and Frotend in the `main.bicep` fil
 
 #### Managed Identity
 
-Configure the Web Apps to use Managed Identity (SystemAssigned) to authenticate to the ACR.
-
-**IMPORTANT!**
-
-The Bicep setting appears to not work, so include a `run` step in the Actions workflow that uses the `az` cli to update the identity to SystemAssigned for the ACRPull role. The process is as follows:
-
-- extract the name of the Web App (use the output URL params but strip `https://` and `.azurewebsites.net`)
-- use the appropriate resource group variable name for the environment
-- use the ACR variable (remember that the ACR lives in PROD, so make sure you use that for the correct scope arg!)
-- use the azure subscription variable
-- execute the following format for the final command:
-`az webapp identity assign --name <app_name> --resource-group <resource_group> --role AcrPull --scope /subscriptions/<subscription_id>/resourceGroups/<prod resource_group>/providers/Microsoft.ContainerRegistry/registries/<acr_name>`
-- do this for both API and frontend web apps AFTER the deploy bicep step
+Configure the Web Apps to use Managed Identity (SystemAssigned) to authenticate to the ACR via an `AcrPull` role assignment to the principalID.
 
 ### Key Resources to Include
 
