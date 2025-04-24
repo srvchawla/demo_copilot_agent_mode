@@ -32,9 +32,17 @@ Make sure you output the URL of both the API and Frotend in the `main.bicep` fil
 
 Configure the Web Apps to use Managed Identity (SystemAssigned) to authenticate to the ACR.
 
-> **IMPORTANT!** The Bicep setting appears to not work, so include a `run` step in the Actions workflow that uses the `az` cli to update the identity to SystemAssigned like this:
+**IMPORTANT!**
 
-`az webapp identity assign --resource-group <group-name> --name <app-name>`
+The Bicep setting appears to not work, so include a `run` step in the Actions workflow that uses the `az` cli to update the identity to SystemAssigned for the ACRPull role. The process is as follows:
+
+- extract the name of the Web App (use the output URL params but strip `https://` and `.azurewebsites.net`)
+- use the appropriate resource group variable name for the environment
+- use the ACR variable (remember that the ACR lives in PROD, so make sure you use that for the correct scope arg!)
+- use the azure subscription variable
+- execute the following format for the final command:
+`az webapp identity assign --name <app_name> --resource-group <resource_group> --role AcrPull --scope /subscriptions/<subscription_id>/resourceGroups/<prod resource_group>/providers/Microsoft.ContainerRegistry/registries/<acr_name>`
+- do this for both API and frontend web apps AFTER the deploy bicep step
 
 ### Key Resources to Include
 
@@ -65,15 +73,16 @@ Configure the Web Apps to use Managed Identity (SystemAssigned) to authenticate 
 
 ### CORS Configuration
 - Configure CORS in the API container app to allow requests from the Frontend container app
-- Use environment variables for dynamic CORS origins based on environment
+- Use environment variables for dynamic CORS origins based on environment (make sure it starts with `https://`!)
 ```
 API_CORS_ORIGINS=https://${frontendAppFqdn},https://${stagingFrontendAppFqdn}
 ```
 - Ensure that the Web App for the frontend has these env vars:
 ```
-API_HOST=<url_of_API_web_app>
+API_HOST=<host_of_API_web_app>
 API_PORT=80
 ```
+- Make sure that the `API_HOST` does NOT contain `https://` (it is the host, not the URL).
 
 ## 3. GitHub Actions Workflow Plan
 
