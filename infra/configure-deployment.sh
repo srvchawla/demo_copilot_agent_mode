@@ -174,6 +174,20 @@ az role assignment create \
     --role Contributor \
     --scope /subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RG_PROD > /dev/null
 
+# Assign User Access Administrator role to allow role assignments
+echo "🔑 Assigning User Access Administrator role to service principal for resource groups..."
+az role assignment create \
+    --assignee-object-id $(az ad sp show --id $CLIENT_ID --query id -o tsv) \
+    --assignee-principal-type ServicePrincipal \
+    --role "User Access Administrator" \
+    --scope /subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RG_STAGING > /dev/null
+
+az role assignment create \
+    --assignee-object-id $(az ad sp show --id $CLIENT_ID --query id -o tsv) \
+    --assignee-principal-type ServicePrincipal \
+    --role "User Access Administrator" \
+    --scope /subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RG_PROD > /dev/null
+
 # Function to create federated credential if it doesn't exist
 create_federated_credential() {
     local name=$1
@@ -213,12 +227,6 @@ set_github_variable() {
         fi
     fi
 }
-
-# enable Compute and Web providers for the subscription
-echo "🏗️ Enabling Web and Compute providers on the subscription"
-az provider register --namespace Microsoft.Compute > /dev/null
-az provider register --namespace Microsoft.Web > /dev/null
-echo "✅ Web and Compute providers enabled"
 
 # Create GitHub environments if they don't exist
 create_github_environment() {
