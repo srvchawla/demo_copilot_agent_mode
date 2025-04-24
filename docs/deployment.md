@@ -30,7 +30,7 @@ Make sure you output the URL of both the API and Frotend in the `main.bicep` fil
 
 #### Managed Identity
 
-Configure the Web Apps to use Managed Identity (SystemAssigned) to authenticate to the ACR via an `AcrPull` role assignment to the principalID.
+Configure the Web Apps to use Managed Identity (SystemAssigned) to authenticate to the ACR via an `AcrPull` role assignment to the principalID. Set `acrUseManagedIdentityCreds: true` for the web apps.
 
 ### Key Resources to Include
 
@@ -145,7 +145,7 @@ API_PORT=80
 ## 3. IMPORTANT! Final Checks
 - Ensure that the bicep files don't have any unused declarations/varialbes
 - Ensure that the `main.bicep` file outputs the hostnames of the API and the frontend, and that these are used (via `${{ steps.<deploy>.ouputs}}) to set the URL for the environment (ensuring that `https://` is prepended)
-- Ensure that AcrPull role assignment is performed correctly for the Web Apps
+- Ensure that AcrPull role assignment is performed correctly for the Web Apps, and that both apps have `acrUseManagedIdentityCreds` is set to true
 - Ensure that the resources are using the location of the resource group
 
 This plan provides a solid foundation for deploying the OctoCAT Supply Chain Management application to Azure Web Apps using infrastructure as code with Bicep and automated CI/CD with GitHub Actions.
