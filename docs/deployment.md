@@ -17,13 +17,12 @@ infra/
 ```
 
 #### Parameters must include:
-- location
 - environmentName
 - appName
 - acrName
 - imageTag
 
-The ACR resource ID must be correctly calculated in the `main.bicep` file and passed to the `webapps.bicep` file along with the `acrName`, `imageTag` and other necessary variables.
+The ACR resource ID must be correctly calculated in the `main.bicep` file and passed to the `webapps.bicep` file along with the `acrName`, `imageTag` and other necessary variables. Make sure the location is defaulted to the resource group location for all resources.
 
 #### Managed Identity
 
