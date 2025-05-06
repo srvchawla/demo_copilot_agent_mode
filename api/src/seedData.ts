@@ -11,18 +11,18 @@ import { OrderDetailDelivery } from './models/orderDetailDelivery';
 export const suppliers: Supplier[] = [
     {
         supplierId: 1,
-        name: "CircuitCore Labs",
-        description: "Leading technology supplier",
-        contactPerson: "John Smith",
-        email: "john@circuitcorelabs.co",
+        name: "PurrTech Innovations",
+        description: "Leading supplier of premium smart cat technology",
+        contactPerson: "Felix Whiskerton",
+        email: "felix@purrtech.co",
         phone: "555-0101"
     },
     {
         supplierId: 2,
-        name: "ConnectSphere",
-        description: "Advanced tech products supplier",
-        contactPerson: "Jane Doe",
-        email: "jane@connectsphere.com",
+        name: "WhiskerWare Systems",
+        description: "Advanced feline-focused smart product supplier",
+        contactPerson: "Tabitha Pawson",
+        email: "tabitha@whiskerware.com",
         phone: "555-0102"
     }
 ];
@@ -32,152 +32,122 @@ export const products: Product[] = [
     {
         productId: 1,
         supplierId: 1,
-        name: "PowerTool Pro X1",
-        description: "High performance power tool with advanced features like smart sensors and ergonomic design.",
-        price: 1299.99,
-        sku: "PWR-001",
+        name: "SmartFeeder One",
+        description: "This AI-powered feeder learns your cat's snack schedule based on nap cycles and mealtime habits. It detects overeating, undernapping, and auto-updates a 'Feline Health Repo.'",
+        price: 129.99,
+        sku: "CAT-FEED-001",
         unit: "piece",
-        imgName: "powertool.png"
+        imgName: "feeder.png"
     },
     {
         productId: 2,
         supplierId: 1,
-        name: "Webcam Pro",
-        description: "Ergonomic webcam with 4K resolution and built-in AI features like auto-framing and background blur.",
-        price: 49.99,
-        sku: "WEB-001",
+        name: "AutoClean Litter Dome",
+        description: "A self-cleaning litter box that detects patterns in your cat's... commits. Sends you a health report and Slack alert if things look 'off.'",
+        price: 199.99,
+        sku: "CAT-LITTER-001",
         unit: "piece",
-        imgName: "webcam.png"
+        imgName: "litter-box.png"
     },
     {
         productId: 3,
         supplierId: 2,
-        name: "Rugged Hard Drive",
-        description: "Advanced storage solution with high durability and fast data transfer speeds, perfect for field agents.",
-        price: 99.99,
-        sku: "HDD-001",
+        name: "CatFlix Entertainment Portal",
+        description: "On-demand laser shows, motion videos, and bird-watching streams - customized per cat using AI interest tracking. Think Netflix, but for felines.",
+        price: 89.99,
+        sku: "CAT-FLIX-001",
         unit: "piece",
-        imgName: "harddrive.png"
+        imgName: "catflix.png"
     },
     {
         productId: 4,
         supplierId: 2,
-        name: "Mic Pro",
-        description: "Advanced audio mic with noise cancellation and smart connectivity features, battery power and USB-C charging.",
-        price: 29.99,
-        sku: "MIC-001",
+        name: "PawTrack Smart Collar",
+        description: "GPS and activity tracker with AI-powered mood detection based on tail position, purring frequency, and movement patterns. Syncs with your phone for walk stats and 'zoomie alerts.'",
+        price: 79.99,
+        sku: "CAT-COLLAR-001",
         unit: "piece",
-        imgName: "mic.png"
+        imgName: "smart-collar.png"
     },
     {
         productId: 5,
         supplierId: 1,
-        name: "Smart Worklight",
-        description: "A compact, magnetic LED worklight with motion detection and a green glow mode. Rechargeable with USB-C.",
-        price: 79.99,
-        sku: "LIGHT-001",
+        name: "SleepNest ThermoPod",
+        description: "A smart bed that adjusts its temperature, lighting, and white noise based on your cat's REM cycles. Auto-generates nap metrics in JSON.",
+        price: 149.99,
+        sku: "CAT-BED-001",
         unit: "piece",
-        imgName: "work-light.png"
+        imgName: "sleep-nest.png"
     },
     {
         productId: 6,
         supplierId: 1,
-        name: "Precision Laser Level",
-        description: "Sleek matte device for leveling and measuring in construction or home setups. Includes a green crosshair projection and auto-calibration.",
-        price: 149.99,
-        sku: "LEVEL-001",
+        name: "ClawMate Auto Groomer",
+        description: "Your cat brushes itself. This AI station detects which areas need grooming, dispenses treats for patience, and logs grooming history to your pet portal.",
+        price: 119.99,
+        sku: "CAT-GROOM-001",
         unit: "piece",
-        imgName: "laser-level.png"
+        imgName: "auto-groomer.png"
     },
     {
         productId: 7,
         supplierId: 1,
-        name: "Modular Tool Battery Pack",
-        description: "A universal battery module compatible with Octo Supply power tools and accessories. Features digital readout and neon green charge strip.",
-        price: 89.99,
-        sku: "BAT-001",
+        name: "Smart Fountain Flow+",
+        description: "This water fountain adjusts flow patterns based on time of day, cat hydration levels, and even playfulness. Uses facial recognition to distinguish multiple cats.",
+        price: 69.99,
+        sku: "CAT-FOUNTAIN-001",
         unit: "piece",
-        imgName: "battery-pack.png"
+        imgName: "smart-fountain.png"
     },
     {
         productId: 8,
         supplierId: 2,
-        name: "Autonomous Mini Shop Vac",
-        description: "A smart, tabletop debris collector for small workspaces. Round, industrial look with rubberized base and animated LED feedback.",
-        price: 199.99,
-        sku: "VAC-001",
+        name: "ScratchPad Pro",
+        description: "More than a scratcher - this one detects scratching habits, gamifies it with leaderboard stats for multi-cat homes, and awards digital badges.",
+        price: 59.99,
+        sku: "CAT-SCRATCH-001",
         unit: "piece",
-        imgName: "shop-vac.png"
+        imgName: "scratch-pad.png"
     },
     {
         productId: 9,
         supplierId: 2,
-        name: "Wearable Field Beacon",
-        description: "A small clip-on wearable device for warehouse or construction crews. GPS-enabled, with safety alerts and NFC sync to Octo Supply systems.",
-        price: 129.99,
-        sku: "BEACON-001",
+        name: "ChirpCam Window Mount",
+        description: "Motion-activated smart cam that records wildlife outside the window and sends curated 'Birdflix' highlights to your cat's personal feed.",
+        price: 99.99,
+        sku: "CAT-CAM-001",
         unit: "piece",
-        imgName: "field-beacon.png"
+        imgName: "chirp-cam.png"
     },
     {
         productId: 10,
         supplierId: 1,
-        name: "Desk-Edge Utility Arm",
-        description: "Futuristic articulated arm that clamps to a desk, used to hold lights, tools, microphones, or phones. Carbon black finish with green accents.",
-        price: 159.99,
-        sku: "ARM-001",
+        name: "SnackVault Puzzle Dispenser",
+        description: "Treat puzzle toy that evolves in difficulty with your cat's cleverness. AI engine auto-adjusts pathways and provides tips to the human if the cat cheats.",
+        price: 49.99,
+        sku: "CAT-SNACK-001",
         unit: "piece",
-        imgName: "robotic-desk-arm.png"
+        imgName: "snack-vault.png"
     },
     {
         productId: 11,
         supplierId: 1,
-        name: "Smart Tape Measure",
-        description: "Digital tape with a laser pointer, OLED screen, and data logging for dimensions. Auto-syncs to paired devices.",
-        price: 69.99,
-        sku: "TAPE-001",
+        name: "DoorDash Pet Portal",
+        description: "Smart cat door with facial recognition and time-based access. Prevents midnight squirrel parties and tracks 'in/out' commits to your dashboard.",
+        price: 159.99,
+        sku: "CAT-DOOR-001",
         unit: "piece",
-        imgName: "smart-tape-measure.png"
+        imgName: "door-dash.png"
     },
     {
         productId: 12,
         supplierId: 2,
-        name: "Industrial Label Printer",
-        description: "Compact thermal printer for tool labeling or warehouse tags. Sleek black case with touch interface and lumo green output light.",
-        price: 249.99,
-        sku: "PRINT-001",
+        name: "ZoomieTracker AI Mat",
+        description: "A motion-sensing mat that detects zoomies, spins up chase lights, and logs agility bursts to a weekly health report. Yes, it graphs zoomies per hour.",
+        price: 79.99,
+        sku: "CAT-TRACKER-001",
         unit: "piece",
-        imgName: "label-printer.png"
-    },
-    {
-        productId: 13,
-        supplierId: 2,
-        name: "Vibration-Dampening Gloves",
-        description: "Smart gloves with embedded sensors that monitor tool usage and fatigue. Rechargeable and machine-washable.",
-        price: 89.99,
-        sku: "GLOVE-001",
-        unit: "piece",
-        imgName: "gloves.png"
-    },
-    {
-        productId: 14,
-        supplierId: 1,
-        name: "Magnetic Tool Organizer Mat",
-        description: "A flexible surface that holds and charges Octo Supply tools via embedded wireless charging coils. Futuristic surface texture with light indicators.",
-        price: 129.99,
-        sku: "MAT-001",
-        unit: "piece",
-        imgName: "organizer.png"
-    },
-    {
-        productId: 15,
-        supplierId: 2,
-        name: "Smart Cat Toy",
-        description: "A smart cat toy for entertaining your favorite Octocat. Battery powered with interactive features and a neon green glow.",
-        price: 29.99,
-        sku: "CAT-001",
-        unit: "piece",
-        imgName: "cat-toy.png"
+        imgName: "tracker-mat.png"
     }
 ];
 
@@ -185,11 +155,11 @@ export const products: Product[] = [
 export const headquarters: Headquarters[] = [
     {
         headquartersId: 1,
-        name: "Main Office",
-        description: "Corporate headquarters",
-        address: "123 Main St, Business District",
-        contactPerson: "Michael Johnson",
-        email: "mjohnson@octo.com",
+        name: "CatTech Global HQ",
+        description: "Feline tech innovations headquarters",
+        address: "123 Whisker Lane, Purrington District",
+        contactPerson: "Catherine Purrston",
+        email: "catherine@octocat.com",
         phone: "555-0001"
     }
 ];
@@ -199,21 +169,21 @@ export const branches: Branch[] = [
     {
         branchId: 1,
         headquartersId: 1,
-        name: "Downtown Branch",
-        description: "Main downtown location",
-        address: "456 Market St",
-        contactPerson: "Sarah Wilson",
-        email: "swilson@octo.com",
+        name: "Meowtown Branch",
+        description: "Main downtown cat tech showroom",
+        address: "456 Purrfect Plaza",
+        contactPerson: "Chloe Whiskers",
+        email: "cwhiskers@octocat.com",
         phone: "555-0201"
     },
     {
         branchId: 2,
         headquartersId: 1,
-        name: "Westside Branch",
-        description: "Western district branch",
-        address: "789 West Ave",
-        contactPerson: "Robert Brown",
-        email: "rbrown@octo.com",
+        name: "Tabby Terrace Branch",
+        description: "Western district cat tech hub",
+        address: "789 Feline Avenue",
+        contactPerson: "Tom Pouncer",
+        email: "tpouncer@octocat.com",
         phone: "555-0202"
     }
 ];
@@ -224,16 +194,16 @@ export const orders: Order[] = [
         orderId: 1,
         branchId: 1,
         orderDate: new Date().toISOString(),
-        name: "Q1 Tech Supply",
-        description: "Quarterly technology refresh",
+        name: "Q2 Feline Tech Refresh",
+        description: "Quarterly smart cat tech product refresh",
         status: "pending"
     },
     {
         orderId: 2,
         branchId: 2,
         orderDate: new Date().toISOString(),
-        name: "Office Supplies Restock",
-        description: "Monthly office supplies restock",
+        name: "Cat Enrichment Bundle",
+        description: "Monthly cat entertainment systems restock",
         status: "processing"
     }
 ];
@@ -245,24 +215,24 @@ export const orderDetails: OrderDetail[] = [
         orderId: 1,
         productId: 2,
         quantity: 5,
-        unitPrice: 49.99,
-        notes: "Webcams for new hires"
+        unitPrice: 199.99,
+        notes: "AutoClean Litter Domes for new cat café locations"
     },
     {
         orderDetailId: 2,
         orderId: 1,
-        productId: 2,
+        productId: 3,
         quantity: 5,
-        unitPrice: 99.99,
-        notes: "Harddrives for new field agents"
+        unitPrice: 89.99,
+        notes: "CatFlix Entertainment Portals for waiting areas"
     },
     {
         orderDetailId: 3,
         orderId: 2,
         productId: 4,
         quantity: 20,
-        unitPrice: 29.99,
-        notes: "Mics for conference rooms"
+        unitPrice: 79.99,
+        notes: "PawTrack Smart Collars for adoption events"
     }
 ];
 
@@ -272,16 +242,16 @@ export const deliveries: Delivery[] = [
         deliveryId: 1,
         supplierId: 1,
         deliveryDate: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString(), // 7 days from now
-        name: "Tech Equipment Delivery",
-        description: "Delivery of tech equipment",
+        name: "PurrTech Smart Home Bundle",
+        description: "Premium cat tech products delivery for smart cat homes",
         status: "pending"
     },
     {
         deliveryId: 2,
         supplierId: 2,
         deliveryDate: new Date(Date.now() + 2 * 24 * 60 * 60 * 1000).toISOString(), // 2 days from now
-        name: "Office Supplies Delivery",
-        description: "Regular office tech supplies delivery",
+        name: "WhiskerWare Entertainment Package",
+        description: "Entertainment and tracking systems for feline companions",
         status: "in-transit"
     }
 ];

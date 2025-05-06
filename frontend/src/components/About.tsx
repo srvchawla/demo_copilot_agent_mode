@@ -1,27 +1,43 @@
 const About = () => {
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100 dark:bg-gray-900 p-4">
-      <div className="max-w-4xl w-full bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8">
-        <h1 className="text-4xl font-bold mb-8 text-gray-900 dark:text-white">About OctoCAT Supplies</h1>
-        <div className="space-y-6 text-gray-600 dark:text-gray-300">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-dark p-4">
+      <div className="max-w-4xl w-full bg-gray-800 rounded-lg shadow-lg p-8 border border-primary/20">
+        <h1 className="text-4xl font-bold mb-8 text-white">About OctoCAT Supply</h1>
+        <div className="space-y-6 text-gray-300">
           <p>
-            OctoCAT Supplies is a comprehensive supply chain management system designed to streamline 
-            your business operations. Our platform connects suppliers, branches, and headquarters 
-            to ensure smooth delivery and inventory management.
+            Welcome to OctoCAT Supply, your premier destination for AI-powered smart products 
+            designed specifically for your feline companions. Our cutting-edge cat tech innovations 
+            bring together the latest in artificial intelligence, sensor technology, and 
+            pet-friendly design to enhance the bond between you and your cat.
           </p>
-          <h2 className="text-2xl font-bold text-gray-800 dark:text-white">Our Mission</h2>
+          <h2 className="text-2xl font-bold text-primary">Our Meow-ssion</h2>
           <p>
-            To provide businesses with an efficient, transparent, and reliable supply chain 
-            management solution that enhances productivity and reduces operational costs.
+            To revolutionize the way cats and humans interact through thoughtfully designed, 
+            AI-enhanced products that improve feline happiness, health monitoring, and 
+            enrichment while delighting their human companions with valuable insights.
           </p>
-          <h2 className="text-2xl font-bold text-gray-800 dark:text-white">Key Features</h2>
+          <h2 className="text-2xl font-bold text-primary">Our Purr-pose</h2>
+          <p>
+            At OctoCAT Supply, we believe that cats deserve the same technological innovations
+            that humans enjoy. Our team of feline behavior specialists, engineers, and AI experts
+            work together to create products that understand, respond to, and improve your cat's
+            daily life.
+          </p>
+          <h2 className="text-2xl font-bold text-primary">Key Features of Our Products</h2>
           <ul className="list-disc list-inside space-y-2">
-            <li>Centralized supplier management</li>
-            <li>Real-time order tracking</li>
-            <li>Multi-branch coordination</li>
-            <li>Automated delivery scheduling</li>
-            <li>Comprehensive reporting tools</li>
+            <li>AI-powered behavior analysis and personalization</li>
+            <li>Real-time health monitoring and wellness alerts</li>
+            <li>Multi-cat household compatibility</li>
+            <li>Smartphone integration with detailed analytics</li>
+            <li>Energy-efficient and eco-friendly materials</li>
+            <li>Sleek, modern designs that complement your home</li>
           </ul>
+          <div className="mt-8 p-4 bg-gray-700 rounded-lg">
+            <p className="italic text-gray-300">
+              "Our cats tested every product in our catalog extensively. Only the ones they 
+              couldn't stop using made it to production." — Felix Whiskerton, Founder
+            </p>
+          </div>
         </div>
       </div>
     </div>

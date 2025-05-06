@@ -17,7 +17,10 @@ export default function Navigation() {
                 alt="Copilot icon"
                 className="h-8 w-auto"
               />
-              <span className="ml-2 text-xl font-bold text-light">OctoCAT Supply</span>
+              <div className="ml-2">
+                <span className="text-xl font-bold text-light">OctoCAT Supply</span>
+                <span className="block text-xs text-primary">Smart Cat Tech, Powered by AI</span>
+              </div>
             </Link>
           </div>
           <div className="hidden md:block">

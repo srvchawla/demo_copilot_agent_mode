@@ -9,7 +9,7 @@ const Footer: React.FC = () => {
           <div>
             <h2 className="font-bold text-xl mb-4 text-primary">About</h2>
             <p className="text-sm">
-              OctoCAT Supply is a world leader in complex logistics and supply chain solutions. We specialize in providing tailored services to meet the unique needs of our clients, ensuring efficiency and reliability in every delivery.
+              OctoCAT Supply is the leading provider of AI-powered smart products for your feline companions. Our innovative technology enhances your cat's wellbeing through intelligent monitoring, interactive entertainment, and personalized comfort solutions.
             </p>
           </div>
 
