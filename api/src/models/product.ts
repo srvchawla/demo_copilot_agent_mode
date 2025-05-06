@@ -28,6 +28,10 @@
  *         stockLevel:
  *           type: integer
  *           description: Current stock level of the product
+ *         discount:
+ *           type: number
+ *           format: float
+ *           description: Discount percentage (if applicable) expressed as a decimal (e.g., 0.25 for 25%)
  */
 export interface Product {
     productId: number;
@@ -38,4 +42,5 @@ export interface Product {
     sku: string;
     unit: string;
     imgName: string;
+    discount?: number;
 }

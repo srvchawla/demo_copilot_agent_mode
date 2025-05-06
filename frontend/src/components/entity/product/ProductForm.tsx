@@ -17,6 +17,7 @@ interface Product {
   sku: string;
   unit: string;
   imgName: string;
+  discount?: number;
 }
 
 interface ProductFormProps {
@@ -137,6 +138,23 @@ export default function ProductForm({ product, suppliers, onClose, onSave }: Pro
                 </option>
               ))}
             </select>
+          </div>
+          <div>
+            <label className={`block ${darkMode ? 'text-light' : 'text-gray-700'} mb-1 transition-colors duration-300`}>Discount (%)</label>
+            <input
+              type="number"
+              value={formData.discount !== undefined ? formData.discount * 100 : ''}
+              onChange={(e) => {
+                const value = e.target.value === '' ? undefined : parseFloat(e.target.value) / 100;
+                setFormData({ ...formData, discount: value });
+              }}
+              placeholder="Enter discount percentage (e.g. 25 for 25%)"
+              className={`w-full px-3 py-2 ${darkMode ? 'bg-gray-700 text-light' : 'bg-gray-100 text-gray-800'} rounded transition-colors duration-300`}
+              min="0"
+              max="100"
+              step="1"
+            />
+            <p className={`text-xs mt-1 ${darkMode ? 'text-gray-400' : 'text-gray-500'}`}>Leave empty for no discount</p>
           </div>
           <div className="flex justify-end space-x-2">
             <button

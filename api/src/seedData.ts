@@ -24,6 +24,14 @@ export const suppliers: Supplier[] = [
         contactPerson: "Tabitha Pawson",
         email: "tabitha@whiskerware.com",
         phone: "555-0102"
+    },
+    {
+        supplierId: 3,
+        name: "CatNip Creations",
+        description: "Supplier of eco-friendly cat toys and accessories",
+        contactPerson: "Nina Nibbles",
+        email: "nina@catnip.com",
+        phone: "555-0103"
     }
 ];
 
@@ -31,23 +39,25 @@ export const suppliers: Supplier[] = [
 export const products: Product[] = [
     {
         productId: 1,
-        supplierId: 1,
+        supplierId: 3,
         name: "SmartFeeder One",
         description: "This AI-powered feeder learns your cat's snack schedule based on nap cycles and mealtime habits. It detects overeating, undernapping, and auto-updates a Feline Health Repo.",
         price: 129.99,
         sku: "CAT-FEED-001",
         unit: "piece",
-        imgName: "feeder.png"
+        imgName: "feeder.png",
+        discount: 0.25
     },
     {
         productId: 2,
-        supplierId: 1,
+        supplierId: 3,
         name: "AutoClean Litter Dome",
         description: "A self-cleaning litter box that detects patterns in your cat's... commits. Sends you a health report and Slack alert if things look off.",
         price: 199.99,
         sku: "CAT-LITTER-001",
         unit: "piece",
-        imgName: "litter-box.png"
+        imgName: "litter-box.png",
+        discount: 0.25
     },
     {
         productId: 3,
@@ -91,13 +101,14 @@ export const products: Product[] = [
     },
     {
         productId: 7,
-        supplierId: 1,
+        supplierId: 3,
         name: "Smart Fountain Flow+",
         description: "This water fountain adjusts flow patterns based on time of day, cat hydration levels, and even playfulness. Uses facial recognition to distinguish multiple cats.",
         price: 69.99,
         sku: "CAT-FOUNTAIN-001",
         unit: "piece",
-        imgName: "smart-fountain.png"
+        imgName: "smart-fountain.png",
+        discount: 0.25
     },
     {
         productId: 8,
@@ -121,13 +132,14 @@ export const products: Product[] = [
     },
     {
         productId: 10,
-        supplierId: 1,
+        supplierId: 3,
         name: "SnackVault Puzzle Dispenser",
         description: "Treat puzzle toy that evolves in difficulty with your cat's cleverness. AI engine auto-adjusts pathways and provides tips to the human if the cat cheats.",
         price: 49.99,
         sku: "CAT-SNACK-001",
         unit: "piece",
-        imgName: "snack-vault.png"
+        imgName: "snack-vault.png",
+        discount: 0.25
     },
     {
         productId: 11,

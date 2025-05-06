@@ -1,24 +1,26 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
+/* eslint-disable react-refresh/only-export-components */
+import React, { useContext, useState, useEffect } from 'react';
+import { ThemeContext } from './themeContextUtils';
 
-type ThemeContextType = {
-  darkMode: boolean;
-  toggleTheme: () => void;
+// Separate hook into its own component file to satisfy fast refresh
+export const useTheme = () => {
+  const context = useContext(ThemeContext);
+  if (context === undefined) {
+    throw new Error('useTheme must be used within a ThemeProvider');
+  }
+  return context;
 };
 
-const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
-
+// Main component export
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  // Check if user has a theme preference in localStorage, default to light
   const [darkMode, setDarkMode] = useState(() => {
     const savedTheme = localStorage.getItem('theme');
     return savedTheme ? savedTheme === 'dark' : false;
   });
 
   useEffect(() => {
-    // Update localStorage when theme changes
     localStorage.setItem('theme', darkMode ? 'dark' : 'light');
     
-    // Apply theme class to the document
     if (darkMode) {
       document.documentElement.classList.add('dark');
       document.documentElement.classList.remove('light');
@@ -37,12 +39,4 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
       {children}
     </ThemeContext.Provider>
   );
-}
-
-export function useTheme() {
-  const context = useContext(ThemeContext);
-  if (context === undefined) {
-    throw new Error('useTheme must be used within a ThemeProvider');
-  }
-  return context;
 }

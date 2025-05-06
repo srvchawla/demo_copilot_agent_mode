@@ -25,6 +25,7 @@ interface Product {
   unit: string;
   imgName: string;
   supplier?: Supplier;
+  discount?: number;
 }
 
 type SortField = 'name' | 'price' | 'sku' | 'unit' | 'supplier';
@@ -156,6 +157,11 @@ export default function AdminProducts() {
               >
                 Unit {renderSortIcon('unit')}
               </th>
+              <th 
+                className={`px-6 py-3 text-left text-xs font-medium ${darkMode ? 'text-light' : 'text-gray-700'} uppercase tracking-wider transition-colors duration-300`}
+              >
+                Discount
+              </th>
               <th className={`px-6 py-3 text-left text-xs font-medium ${darkMode ? 'text-light' : 'text-gray-700'} uppercase tracking-wider transition-colors duration-300`}>
                 Description
               </th>
@@ -172,6 +178,9 @@ export default function AdminProducts() {
                 <td className={`px-6 py-4 whitespace-nowrap ${darkMode ? 'text-light' : 'text-gray-800'} transition-colors duration-300`}>${product.price.toFixed(2)}</td>
                 <td className={`px-6 py-4 whitespace-nowrap ${darkMode ? 'text-light' : 'text-gray-800'} transition-colors duration-300`}>{product.sku}</td>
                 <td className={`px-6 py-4 whitespace-nowrap ${darkMode ? 'text-light' : 'text-gray-800'} transition-colors duration-300`}>{product.unit}</td>
+                <td className={`px-6 py-4 whitespace-nowrap ${darkMode ? 'text-light' : 'text-gray-800'} transition-colors duration-300`}>
+                  {product.discount ? `${(product.discount * 100).toFixed(0)}%` : '-'}
+                </td>
                 <td className={`px-6 py-4 ${darkMode ? 'text-light' : 'text-gray-800'} transition-colors duration-300`}>
                   <div className="max-w-xs truncate">{product.description}</div>
                 </td>
