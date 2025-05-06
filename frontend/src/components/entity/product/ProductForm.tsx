@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import axios from 'axios';
 import { api } from '../../../api/config';
+import { useTheme } from '../../../context/ThemeContext';
 
 interface Supplier {
   supplierId: number;
@@ -26,6 +27,7 @@ interface ProductFormProps {
 }
 
 export default function ProductForm({ product, suppliers, onClose, onSave }: ProductFormProps) {
+  const { darkMode } = useTheme();
   const [formData, setFormData] = useState<Partial<Product>>(
     product || {
       name: '',
@@ -54,79 +56,79 @@ export default function ProductForm({ product, suppliers, onClose, onSave }: Pro
   };
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4">
-      <div className="bg-gray-800 rounded-lg p-6 w-full max-w-md">
-        <h2 className="text-2xl font-bold text-light mb-4">
+    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
+      <div className={`${darkMode ? 'bg-gray-800' : 'bg-white'} rounded-lg p-6 w-full max-w-md shadow-xl transition-colors duration-300`}>
+        <h2 className={`text-2xl font-bold ${darkMode ? 'text-light' : 'text-gray-800'} mb-4 transition-colors duration-300`}>
           {product ? 'Edit Product' : 'Add New Product'}
         </h2>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label className="block text-light mb-1">Name</label>
+            <label className={`block ${darkMode ? 'text-light' : 'text-gray-700'} mb-1 transition-colors duration-300`}>Name</label>
             <input
               type="text"
               value={formData.name}
               onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-              className="w-full px-3 py-2 bg-gray-700 text-light rounded"
+              className={`w-full px-3 py-2 ${darkMode ? 'bg-gray-700 text-light' : 'bg-gray-100 text-gray-800'} rounded transition-colors duration-300`}
               required
             />
           </div>
           <div>
-            <label className="block text-light mb-1">Description</label>
+            <label className={`block ${darkMode ? 'text-light' : 'text-gray-700'} mb-1 transition-colors duration-300`}>Description</label>
             <textarea
               value={formData.description}
               onChange={(e) => setFormData({ ...formData, description: e.target.value })}
-              className="w-full px-3 py-2 bg-gray-700 text-light rounded"
+              className={`w-full px-3 py-2 ${darkMode ? 'bg-gray-700 text-light' : 'bg-gray-100 text-gray-800'} rounded transition-colors duration-300`}
               required
             />
           </div>
           <div>
-            <label className="block text-light mb-1">Price</label>
+            <label className={`block ${darkMode ? 'text-light' : 'text-gray-700'} mb-1 transition-colors duration-300`}>Price</label>
             <input
               type="number"
               value={formData.price}
               onChange={(e) => setFormData({ ...formData, price: parseFloat(e.target.value) })}
-              className="w-full px-3 py-2 bg-gray-700 text-light rounded"
+              className={`w-full px-3 py-2 ${darkMode ? 'bg-gray-700 text-light' : 'bg-gray-100 text-gray-800'} rounded transition-colors duration-300`}
               required
               min="0"
               step="0.01"
             />
           </div>
           <div>
-            <label className="block text-light mb-1">SKU</label>
+            <label className={`block ${darkMode ? 'text-light' : 'text-gray-700'} mb-1 transition-colors duration-300`}>SKU</label>
             <input
               type="text"
               value={formData.sku}
               onChange={(e) => setFormData({ ...formData, sku: e.target.value })}
-              className="w-full px-3 py-2 bg-gray-700 text-light rounded"
+              className={`w-full px-3 py-2 ${darkMode ? 'bg-gray-700 text-light' : 'bg-gray-100 text-gray-800'} rounded transition-colors duration-300`}
               required
             />
           </div>
           <div>
-            <label className="block text-light mb-1">Unit</label>
+            <label className={`block ${darkMode ? 'text-light' : 'text-gray-700'} mb-1 transition-colors duration-300`}>Unit</label>
             <input
               type="text"
               value={formData.unit}
               onChange={(e) => setFormData({ ...formData, unit: e.target.value })}
-              className="w-full px-3 py-2 bg-gray-700 text-light rounded"
+              className={`w-full px-3 py-2 ${darkMode ? 'bg-gray-700 text-light' : 'bg-gray-100 text-gray-800'} rounded transition-colors duration-300`}
               required
             />
           </div>
           <div>
-            <label className="block text-light mb-1">Image Name</label>
+            <label className={`block ${darkMode ? 'text-light' : 'text-gray-700'} mb-1 transition-colors duration-300`}>Image Name</label>
             <input
               type="text"
               value={formData.imgName}
               onChange={(e) => setFormData({ ...formData, imgName: e.target.value })}
-              className="w-full px-3 py-2 bg-gray-700 text-light rounded"
+              className={`w-full px-3 py-2 ${darkMode ? 'bg-gray-700 text-light' : 'bg-gray-100 text-gray-800'} rounded transition-colors duration-300`}
               required
             />
           </div>
           <div>
-            <label className="block text-light mb-1">Supplier</label>
+            <label className={`block ${darkMode ? 'text-light' : 'text-gray-700'} mb-1 transition-colors duration-300`}>Supplier</label>
             <select
               value={formData.supplierId}
               onChange={(e) => setFormData({ ...formData, supplierId: parseInt(e.target.value) })}
-              className="w-full px-3 py-2 bg-gray-700 text-light rounded"
+              className={`w-full px-3 py-2 ${darkMode ? 'bg-gray-700 text-light' : 'bg-gray-100 text-gray-800'} rounded transition-colors duration-300`}
               required
             >
               {suppliers.map((supplier) => (
@@ -140,13 +142,13 @@ export default function ProductForm({ product, suppliers, onClose, onSave }: Pro
             <button
               type="button"
               onClick={onClose}
-              className="px-4 py-2 bg-gray-600 text-white rounded hover:bg-gray-500"
+              className={`px-4 py-2 ${darkMode ? 'bg-gray-600' : 'bg-gray-300'} ${darkMode ? 'text-white' : 'text-gray-800'} rounded hover:${darkMode ? 'bg-gray-500' : 'bg-gray-400'} transition-colors duration-300`}
             >
               Cancel
             </button>
             <button
               type="submit"
-              className="px-4 py-2 bg-primary text-white rounded hover:bg-accent"
+              className="px-4 py-2 bg-primary text-white rounded hover:bg-accent transition-colors duration-300"
             >
               {product ? 'Update' : 'Create'}
             </button>
