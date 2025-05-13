@@ -12,7 +12,7 @@ description: "Generate a markdown file with a model comparison table for GitHub 
 
 ## Task 1: Generate Comparison Tables per Use Case
 
-Generate a markdown file named `model-comparison.md` with the following content:
+Generate (or update) a file named `model-comparison.md` with the following content:
 
 - Create one section per model use-case listed on the very top of the GitHub Documentation page (balance beteween performance and cost, fast,low-cst support for basic tasks, deep reasoning and multimodal inputs).
 - Add missing models to the sections where they make the most sense
