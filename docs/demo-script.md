@@ -81,11 +81,7 @@ You can also use the Command Palette to start the MCP servers.
 - **How:**  
   1. Show the [model.prompt.md](../.github/prompts/model.prompt.md) file in the prompts directory. Note that it has a URL reference to the official GitHub docs!
   1. Open Copilot Chat
-  1. Hit `Cmd/Ctrl P` -> `Chat: Use prompt` -> `model`
-  1. Enter this prompt:
-    ```txt
-    Help me select the best model for adding a cart icon and simple cart page to the frontend
-    ```
+  1. Enter `/model Goal=I want to add a Cart icon that tracks items in the cart. I want you to implement the cart page as pictured in the image. When users click the icon, navigate to the Cart page` and attach the image [/docs/design/cart.png](/docs/design/cart.png). Hit enter.
   1. Show at the output
   1. **Note:** You don't have to use the models suggested - just explain that you always have a choice!
 
