@@ -1,0 +1,20 @@
+{
+  "name": "GitHub Copilot Agent Mode v2",
+  "shortname": "copilot-agent-mode-v2",
+  "version": "latest",
+  "demoContents": {
+    "copilot-agent-mode": {
+      "url": "./",
+      "mainBranch": "main",
+      "additionalBranches": [
+        "dotnet",
+        "java",
+        "prompt-2-instructions",
+        "python"
+      ],
+      "templatedFiles": [
+        "README.md"
+      ]
+    }
+  }
+}
