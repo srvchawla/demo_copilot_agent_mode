@@ -1,12 +1,12 @@
 {
-  "name": "@octodemo-framework/demo_copilot_agent_mode_v2",
+  "name": "@octodemo-framework/demo_copilot_agent_mode",
   "version": "1.0.0",
-  "description": "GitHub Copilot Agent Mode v2",
+  "description": "GitHub Copilot Agent Mode",
   "private": true,
-  "homepage": "https://github.com/octodemo-framework/demo_copilot_agent_mode_v2#readme",
+  "homepage": "https://github.com/octodemo-framework/demo_copilot_agent_mode#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/octodemo-framework/demo_copilot_agent_mode_v2.git"
+    "url": "git+https://github.com/octodemo-framework/demo_copilot_agent_mode.git"
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
