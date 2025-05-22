@@ -3,7 +3,7 @@
   "shortname": "copilot-agent-mode-v2",
   "version": "latest",
   "demoContents": {
-    "copilot-agent-mode": {
+    "copilot-agent-mode-v2": {
       "url": "./",
       "mainBranch": "main",
       "additionalBranches": [
