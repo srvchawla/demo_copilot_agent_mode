@@ -25,12 +25,26 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0 # Needs all branches to create the release
+      # - name: Install gh-octodemo
+      #   shell: bash
+      #   env:
+      #     GH_TOKEN: ${{ steps.gh_octodemo_cli_app.outputs.token }}
+      #   run: |
+      #     gh extension install octodemo-resources/gh-octodemo --pin ${{ vars.OD_GH_OCTODEMO_CLI_VERSION }} --force
+      - uses: actions/checkout@v4
+        with:
+          ref: fix-insert-repo-contents
+          repository: octodemo-resources/gh-octodemo
+          token: ${{ steps.gh_octodemo_cli_app.outputs.token }}
+          path: ./gh-octodemo
       - name: Install gh-octodemo
         shell: bash
+        working-directory: ./gh-octodemo
         env:
           GH_TOKEN: ${{ steps.gh_octodemo_cli_app.outputs.token }}
         run: |
-          gh extension install octodemo-resources/gh-octodemo --pin ${{ vars.OD_GH_OCTODEMO_CLI_VERSION }} --force
+          echo "GH_TOKEN=$GH_TOKEN" >> "$GITHUB_ENV"
+          gh extension install .
       - uses: actions/setup-node@v4
         with:
           node-version: '22.x'
