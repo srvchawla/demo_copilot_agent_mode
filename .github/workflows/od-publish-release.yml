@@ -43,7 +43,6 @@ jobs:
         env:
           GH_TOKEN: ${{ steps.gh_octodemo_cli_app.outputs.token }}
         run: |
-          echo "GH_TOKEN=$GH_TOKEN" >> "$GITHUB_ENV"
           gh extension install .
       - uses: actions/setup-node@v4
         with:
