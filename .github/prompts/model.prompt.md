@@ -1,15 +1,16 @@
 ---
 mode: 'agent'
 description: "Help me to choose the best model for a specific goal."
+tools: ['fetch', 'search']
 ---
 # Choosing the right model
 
 ## Constraints:
 
-- DO NOT modify Code
-- DO NOT suggest what code changes I need
-- ONLY suggest which model I should use
-- DO NOT suggest using models directly, only through GitHub Copilot
+- YOU MUST NOT modify Code
+- YOU MUST NOT suggest what code changes I need
+- YOU MUST ONLY suggest which model I should use
+- YOU MUST NOT suggest using models directly, only through GitHub Copilot
 
 ## Goal
 
@@ -17,7 +18,7 @@ ${input:goal:'I want to choose the best AI model for my task.'}
 
 ## Rubrik
 
-Always fetch the [GitHub docs](https://docs.github.com/en/enterprise-cloud@latest/copilot/using-github-copilot/ai-models/choosing-the-right-ai-model-for-your-task] reference to help me select the correct models for the tasks I want to perform.
+ALWAYS fetch the [GitHub docs](https://docs.github.com/en/enterprise-cloud@latest/copilot/using-github-copilot/ai-models/choosing-the-right-ai-model-for-your-task) reference to help me select the correct models for the tasks I want to perform.
 
 Given the above Goal, and the docs, help me to choose the best Copilot model for my task.
 
