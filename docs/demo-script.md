@@ -86,6 +86,21 @@ You can also use the Command Palette to start the MCP servers.
   1. Show at the output
   1. **Note:** You don't have to use the models suggested - just explain that you always have a choice!
 
+### **Demo: Using `/handoff` reusable prompt**
+- **What to show:** Using the `/handoff` prompt to hand off the Ask/Agent work to another session.
+- **Why:** Demonstrate how to control the context, drop unnecessary context and hand off the work another Chat/Agent session.
+- **How:**  
+  1. Open Copilot Chat and switch to `Ask` mode.
+  1. Enter `/plan I want to add Personal Profile page to the app that shows the user profile and their purchases.`
+  1. Show the output and ask Copilot to change something in the plan. (like remove the `purchases` part)
+  1. Explain that currently the entier conversation is in the context, the connversation might grow long and it's a good idea to start a new session with the clean state, but preserving the important details.
+  1. Show the [handoff.prompt.md](../.github/prompts/handoff.prompt.md) file in the prompts directory. Note the internal thinking process.
+  1. Run the `/handoff` prompt and show the generated `handoff.md` document. It should contain the summary, gathered information and the plan. It should not contain the removed parts such as the `purchases`.
+  1. Switch to `Agent` mode, include the handoff document and ask Copilot to `implement the changes`, you may cancell it after a few seconds.
+  1. **Note:** You don't have to use `/handoff` for every task, explain that this is the way to control the context size, pass the work between sessions and/or ther team members.
+  1. `handoff.md` file can be reverted after.
+
+
 ### **Demo: Using Vision and Agent to Generate Cart Functionality**  
 
 - **What to show:** "Vibe coding" using Agent Mode and Vision to complete complex tasks.
