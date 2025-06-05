@@ -1,5 +1,11 @@
 # OctoCAT Supply Chain Management Application
 
+## GitHub Repo Information
+
+This repo is hosted in GitHub:
+- owner: <$ demo_org.owner $>
+- repo: <$ demo_instance_name $>
+
 ## Architecture
 
 The complete architecture is described in the [Architecture Document](../docs/architecture.md).
