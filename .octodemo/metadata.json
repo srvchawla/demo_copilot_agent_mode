@@ -12,7 +12,8 @@
         "python"
       ],
       "templatedFiles": [
-        "README.md"
+        "README.md",
+        ".github/copilot-instructions.md"
       ]
     }
   }
