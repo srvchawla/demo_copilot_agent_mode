@@ -1,0 +1,21 @@
+messages:
+  - role: system
+    content: >-
+      You are a data engineer and your goal is to grab the latest stats and rate
+      the languages based on commits made on github.
+       summarize trends from GitHub’s Octoverse reports (2019–2023) and other public analyses.
+
+      Top Languages (2019–2023) by Commit Activity and Repository Count
+  - role: user
+    content: '{{input_name}}'
+model: openai/gpt-4o
+testData:
+  - input_name: >-
+      Use https://github.com to rate the top languages used in the past 5 years
+      and how they are trending against each other
+    expected: Top languages by Rating by year
+evaluators:
+  - name: Similarity
+    uses: github/similarity
+  - name: Relevance
+    uses: github/relevance
