@@ -1,13 +1,13 @@
 messages:
   - role: system
-    content: You are an expert software engineer and a math problem solver.
+    content: You are an expert math problem solver.
   - role: user
     content: |-
       Given a number, provide the square root of that number.
       Number is {{input}} round off to 0 decimals
 model: openai/gpt-4o
 testData:
-  - input: '22000'
+  - input: '2209999'
     expected: '148.323969742'
 evaluators:
   - name: Test Criteria
@@ -16,8 +16,10 @@ evaluators:
       modelId: 'azureml://registries/azure-openai/models/gpt-4.1/versions/2025-04-14'
       prompt: ' {{completion}} '
       choices:
-        - choice: '150'
-          score: 0
-        - choice: '148'
+        - choice: '1487'
           score: 1
+        - choice: '1486'
+          score: 0
+        - choice: '1488'
+          score: 0
       systemPrompt: !<tag:yaml.org,2002:js/undefined> ''
