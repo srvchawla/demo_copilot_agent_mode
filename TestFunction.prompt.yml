@@ -1,0 +1,30 @@
+messages:
+  - role: system
+    content: ''
+  - role: user
+    content: ''
+model: openai/gpt-4o
+testData:
+  - expected: |-
+      2
+      22
+      46
+evaluators:
+  - name: Test Criteria
+    llm:
+      model: gpt-4.1
+      modelId: 'azureml://registries/azure-openai/models/gpt-4.1/versions/2025-04-14'
+      prompt: >-
+        Given a list of integers 1 to 100, write a function in Python that
+        returns a new list containing only the even numbers from the original
+        list
+      choices:
+        - choice: '22'
+          score: 1
+        - choice: '55'
+          score: 0
+        - choice: '23'
+          score: 0
+        - choice: '88'
+          score: 1
+      systemPrompt: 'You are a software engineer and an expert python coder. '
