@@ -3,8 +3,8 @@
 ## GitHub Repo Information
 
 This repo is hosted in GitHub:
-- owner: <$ demo_org.owner $>
-- repo: <$ demo_instance_name $>
+- owner: <$ srvchawla_test_org.srvchawla $>
+- repo: <$ demo_copilot_agent_mode $>
 
 ## Architecture
 
