@@ -5,6 +5,12 @@
             "type": "promptString",
             "description": "GitHub Personal Access Token",
             "password": true
+        },
+        {
+            "id": "perplexity_api_key",
+            "type": "promptString",
+            "description": "Perplexity API Key",
+            "password": true
         }
     ],
     "servers": {
@@ -37,6 +43,16 @@
                 "server",
                 "start"
             ]
+        },
+        "perplexity": {
+            "command": "npx",
+            "args": [
+                "-y",
+                "mcp-perplexity-search@latest"
+            ],
+            "env": {
+                "PERPLEXITY_API_KEY": "${input:perplexity_api_key}"
+            }
         }
     }
 }
