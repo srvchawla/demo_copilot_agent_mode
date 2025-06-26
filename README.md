@@ -80,10 +80,14 @@ Or use the VS Code tasks:
 To showcase extended capabilities:
 
 1. Install Docker/Podman for the GitHub MCP server
-2. Use VS Code command palette:
+2. Get API keys:
+   - GitHub Personal Access Token (for GitHub MCP server)
+   - Perplexity API Key (for Perplexity MCP server)
+3. Use VS Code command palette:
    - `MCP: List servers` -> `playwright` -> `Start server`
    - `MCP: List servers` -> `github` -> `Start server`
-3. Configure with a GitHub PAT (required for GitHub MCP server)
+   - `MCP: List servers` -> `perplexity` -> `Start server`
+4. Configure with required credentials when prompted
 
 ## 📚 Documentation
 

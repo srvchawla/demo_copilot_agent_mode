@@ -75,6 +75,15 @@ You can also use the Command Palette to start the MCP servers.
 
 > **Pro tip:** If you want to change the PAT, open the Settings json file. You will see `"id": "github_token" = ****` in the `input` section. Right-click on the `***` section to edit or clear the cached token. (The `***` is a GUI feature - the value is not actually stored in the json file)
 
+##### Start the Perplexity MCP Server
+
+> Generate a Perplexity API key from the [Perplexity API console](https://www.perplexity.ai/settings/api). This will enable Copilot to perform intelligent search and research using Perplexity's AI-powered search capabilities.
+
+- This server runs via npx and requires a Perplexity API key.
+- Use the cmd palette `Cmd/Ctrl + Shift + P` -> `MCP: List servers` -> `perplexity` -> `Start server`. The first time you run this, you will need to supply your Perplexity API key.
+
+> **Pro tip:** Like the GitHub token, you can manage the Perplexity API key through the Settings json file. Look for `"id": "perplexity_api_key" = ****` in the `input` section and right-click on the `***` to edit or clear the cached key.
+
 ### **Demo: Prompt Files**
 - **What to show:** Reusing prompts to streamline AI-native workflow
 - **Why:** Demonstrate how Copilot and VSCode use prompts to help streamline AI-native workflows and keep developers in the flow.
@@ -149,6 +158,18 @@ You can also use the Command Palette to start the MCP servers.
   1. Ask Copilot to `create an Issue for enhancing test coverage in the API project and assign it to me`. (Don't forget to check the owner/repo in the args!)
   1. Show how Copilot creates a new Issue with a meaningful description and labels
   1. (Optional): Assign the issue to Copilot to queue off Padawan!
+
+### **Demo: MCP Servers - Perplexity (Optional)**  
+
+- **What to show:** Perform intelligent search and research using Perplexity AI capabilities.
+- **Why:** Demonstrate how MCP servers can extend Copilot with specialized AI search and reasoning capabilities.
+- **How:**  
+  1. Switch to Agent mode
+  1. Ask Copilot to `search for the latest trends in TypeScript development and summarize key findings`
+  1. Show how Copilot uses the Perplexity MCP server to perform real-time web search and analysis
+  1. Ask Copilot to `research best practices for React component testing and provide specific recommendations for our project`
+  1. Demonstrate how the search results are contextual and actionable for the current project
+  1. (Optional): Ask for comparisons between different technologies or frameworks
 
 ### **Demo: Enhancing Unit Tests and Coverage**  
 
