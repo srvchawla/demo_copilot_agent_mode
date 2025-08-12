@@ -8,8 +8,6 @@ export default {
     extend: {
       colors: {
         'primary': '#76B852',
-        'dark': '#0A0A0A',
-        'light': '#F5F5F5',
         'accent': '#8BC34A',
         'gray': {
           100: '#f5f5f5',
@@ -32,5 +30,4 @@ export default {
     },
   },
   plugins: [],
-  darkMode: 'class', // Enables dark mode variants with the 'dark' class
 }
