@@ -42,44 +42,67 @@ export default function Welcome() {
     <div className={`relative ${darkMode ? 'bg-dark text-light' : 'bg-white text-gray-800'} transition-colors duration-300`}>
       {/* Content */}
       <div className="relative px-4 sm:px-6 lg:px-8 pt-8">
-        <div className="relative py-4">
+        <div className="relative py-6">
           {/* Hero Image */}
-          <div className="w-full max-w-7xl mx-auto">
+          <div className="relative w-full max-w-7xl mx-auto overflow-hidden rounded-2xl shadow-lg">
             <img
               src="/hero.png"
               alt="Smart Cat Products powered by AI"
-              className="w-full h-auto rounded-lg"
+              className="w-full h-[420px] sm:h-[460px] object-cover"
             />
-          </div>
-
-          {/* Text Content */}
-          <div className="absolute inset-0 flex items-start pt-16 justify-end max-w-7xl mx-auto px-10 sm:px-12 lg:px-14 mr-[-1rem]">
-            <div className={`max-w-2xl ${darkMode ? 'bg-dark/60' : 'bg-white/60'} backdrop-blur-sm p-8 rounded-xl shadow-[0_0_25px_rgba(118,184,82,0.5)] transition-colors duration-300`}>
-              <div className={`${darkMode ? 'bg-primary/20' : 'bg-primary/30'} inline-block px-4 py-2 rounded-full mb-4 border border-primary/40`}>
-                <span className="text-primary-700 dark:text-primary-300 font-semibold">Powered by Advanced AI</span>
+            <div className={`absolute inset-0 ${darkMode ? 'bg-gradient-to-r from-black/70 via-black/40 to-transparent' : 'bg-gradient-to-r from-white/95 via-white/80 to-transparent'}`}>
+              <div className="flex h-full items-center">
+                <div className="max-w-xl px-8 sm:px-12 lg:px-16">
+                  <div className={`${darkMode ? 'bg-primary/20' : 'bg-primary/30'} inline-flex items-center px-4 py-2 rounded-full mb-5 border border-primary/40`}>
+                    <span className="text-primary font-semibold tracking-wide text-sm">AI-Curated Supply Chain</span>
+                  </div>
+                  <h1 className={`text-4xl sm:text-5xl font-bold mb-5 leading-tight ${darkMode ? 'text-white' : 'text-gray-800'} transition-colors duration-300`}>
+                    Future-ready cat care, delivered smarter.
+                  </h1>
+                  <p className={`${darkMode ? 'text-gray-200' : 'text-gray-700'} mb-6 text-lg transition-colors duration-300`}>
+                    OctoCAT Supply unifies predictive analytics, personalized care plans, and connected devices so every cat gets premium wellness and play experiences—without the guesswork.
+                  </p>
+                  <div className="flex flex-wrap gap-4">
+                    <button
+                      onClick={() => navigate('/products')}
+                      className="bg-primary hover:bg-accent text-white px-7 py-3 rounded-md font-medium transition-colors cursor-pointer"
+                    >
+                      Shop Smart Products
+                    </button>
+                    <button
+                      onClick={() => navigate('/about')}
+                      className={`px-7 py-3 rounded-md font-medium border ${darkMode ? 'border-white/60 text-white hover:border-white' : 'border-gray-400 text-gray-700 hover:border-gray-600'} transition-colors cursor-pointer`}
+                    >
+                      Schedule a Demo
+                    </button>
+                  </div>
+                  <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-5 text-sm">
+                    <div>
+                      <p className={`text-2xl font-bold ${darkMode ? 'text-white' : 'text-gray-800'}`}>50+</p>
+                      <p className={`${darkMode ? 'text-gray-200' : 'text-gray-600'}`}>Smart SKUs in stock</p>
+                    </div>
+                    <div>
+                      <p className={`text-2xl font-bold ${darkMode ? 'text-white' : 'text-gray-800'}`}>24/7</p>
+                      <p className={`${darkMode ? 'text-gray-200' : 'text-gray-600'}`}>Health insights</p>
+                    </div>
+                    <div>
+                      <p className={`text-2xl font-bold ${darkMode ? 'text-white' : 'text-gray-800'}`}>98%</p>
+                      <p className={`${darkMode ? 'text-gray-200' : 'text-gray-600'}`}>Partner satisfaction</p>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <h1 className={`text-5xl font-bold mb-6 leading-tight ${darkMode ? 'text-white' : 'text-gray-800'} transition-colors duration-300`}>
-                Smart Cat Tech.<br />Purrsonalized.
-              </h1>
-              <p className={`${darkMode ? 'text-gray-200' : 'text-gray-700'} mb-8 text-lg transition-colors duration-300`}>
-                OctoCAT Supply brings cutting-edge AI technology to enhance your cat's life. Our premium smart products learn from your feline friend's behavior to provide personalized experiences, health insights, and next-level entertainment.
-              </p>
-              <button 
-                onClick={() => navigate('/products')} 
-                className="bg-primary hover:bg-accent text-white px-8 py-3 rounded-md font-medium transition-colors cursor-pointer"
-              >
-                Explore Products
-              </button>
             </div>
           </div>
         </div>
         
         {/* Partner Logos */}
-        <div className={`py-2 mt-0 max-w-7xl mx-auto ${darkMode ? 'text-white' : 'text-gray-800'}`}>
+        <div className={`py-4 mt-0 max-w-7xl mx-auto ${darkMode ? 'text-white' : 'text-gray-800'}`}>
           <div className="flex flex-wrap items-center">
             {/* Section Title - Takes 20% width on larger screens */}
             <div className="w-full md:w-1/5 mb-8 md:mb-0">
-              <h2 className={`text-3xl font-bold text-left transition-colors duration-300`}>Trusted By Cat Lovers Everywhere</h2>
+              <h2 className="text-3xl font-bold text-left transition-colors duration-300">Trusted by modern pet retailers</h2>
+              <p className={`${darkMode ? 'text-gray-300' : 'text-gray-600'} mt-3 text-sm transition-colors duration-300`}>Preferred by wellness clinics, boutique shops, and cat cafes.</p>
             </div>
             
             {/* Carousel - Takes 80% width on larger screens */}
@@ -98,7 +121,7 @@ export default function Welcome() {
                 </defs>
               </svg>
 
-              <Slider {...sliderSettings} ref={sliderRef} className="opacity-50">
+              <Slider {...sliderSettings} ref={sliderRef} className="opacity-70">
                 {/* Logo 1 - Cat Cafe */}
                 <div className="flex flex-col items-center justify-center text-center px-4">
                   <div className="flex items-center justify-center transition-all duration-300 group-hover:drop-shadow-[0_0_12px_rgba(118,184,82,0.4)] group-hover:scale-110 mb-2">
@@ -193,7 +216,10 @@ export default function Welcome() {
 
         {/* Product Categories */}
         <div className="py-16">
-          <h2 className={`text-3xl font-bold ${darkMode ? 'text-white' : 'text-gray-800'} text-center mb-12 transition-colors duration-300`}>Smart Solutions for Modern Cats</h2>
+          <h2 className={`text-3xl font-bold ${darkMode ? 'text-white' : 'text-gray-800'} text-center mb-4 transition-colors duration-300`}>Built for modern pet supply teams</h2>
+          <p className={`${darkMode ? 'text-gray-300' : 'text-gray-600'} text-center max-w-3xl mx-auto mb-12 transition-colors duration-300`}>
+            From forecasting to fulfillment, OctoCAT aligns inventory, insights, and experience design so your customers always find the right care solution.
+          </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto">
             <div className={`${darkMode ? 'bg-gray-800' : 'bg-white'} rounded-lg p-6 shadow-lg hover:shadow-[0_0_15px_rgba(118,184,82,0.3)] transition-all duration-300`}>
               <div className="text-primary text-4xl mb-4">
@@ -201,8 +227,8 @@ export default function Welcome() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                 </svg>
               </div>
-              <h3 className={`text-xl font-bold ${darkMode ? 'text-white' : 'text-gray-800'} mb-2 transition-colors duration-300`}>Smart Monitoring</h3>
-              <p className={`${darkMode ? 'text-gray-300' : 'text-gray-600'} transition-colors duration-300`}>AI-powered devices that track your cat's health, activity, and behavior patterns to provide valuable insights.</p>
+              <h3 className={`text-xl font-bold ${darkMode ? 'text-white' : 'text-gray-800'} mb-2 transition-colors duration-300`}>Predictive Monitoring</h3>
+              <p className={`${darkMode ? 'text-gray-300' : 'text-gray-600'} transition-colors duration-300`}>Surface live health insights, replenishment alerts, and behavior analytics across every connected device.</p>
             </div>
             <div className={`${darkMode ? 'bg-gray-800' : 'bg-white'} rounded-lg p-6 shadow-lg hover:shadow-[0_0_15px_rgba(118,184,82,0.3)] transition-all duration-300`}>
               <div className="text-primary text-4xl mb-4">
@@ -211,8 +237,8 @@ export default function Welcome() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </div>
-              <h3 className={`text-xl font-bold ${darkMode ? 'text-white' : 'text-gray-800'} mb-2 transition-colors duration-300`}>Interactive Entertainment</h3>
-              <p className={`${darkMode ? 'text-gray-300' : 'text-gray-600'} transition-colors duration-300`}>Engaging toys and systems that adapt to your cat's play style and preferences for maximum enjoyment.</p>
+              <h3 className={`text-xl font-bold ${darkMode ? 'text-white' : 'text-gray-800'} mb-2 transition-colors duration-300`}>Adaptive Engagement</h3>
+              <p className={`${darkMode ? 'text-gray-300' : 'text-gray-600'} transition-colors duration-300`}>Deliver toys and enrichment that learn play patterns, keeping cats active while reducing returns.</p>
             </div>
             <div className={`${darkMode ? 'bg-gray-800' : 'bg-white'} rounded-lg p-6 shadow-lg hover:shadow-[0_0_15px_rgba(118,184,82,0.3)] transition-all duration-300`}>
               <div className="text-primary text-4xl mb-4">
@@ -220,10 +246,22 @@ export default function Welcome() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                 </svg>
               </div>
-              <h3 className={`text-xl font-bold ${darkMode ? 'text-white' : 'text-gray-800'} mb-2 transition-colors duration-300`}>Comfort & Wellness</h3>
-              <p className={`${darkMode ? 'text-gray-300' : 'text-gray-600'} transition-colors duration-300`}>Smart beds, feeding solutions, and grooming tools designed to enhance your cat's health and comfort.</p>
+              <h3 className={`text-xl font-bold ${darkMode ? 'text-white' : 'text-gray-800'} mb-2 transition-colors duration-300`}>Wellness Assurance</h3>
+              <p className={`${darkMode ? 'text-gray-300' : 'text-gray-600'} transition-colors duration-300`}>Bundle smart feeding, comfort essentials, and clinical-grade care programs with confidence.</p>
             </div>
           </div>
+        </div>
+        <div className={`${darkMode ? 'bg-gray-800' : 'bg-primary/10'} rounded-2xl max-w-7xl mx-auto p-8 sm:p-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6`}>
+          <div>
+            <h3 className={`text-2xl font-bold ${darkMode ? 'text-white' : 'text-gray-800'} mb-2 transition-colors duration-300`}>Ready to plan your next collection?</h3>
+            <p className={`${darkMode ? 'text-gray-300' : 'text-gray-700'} transition-colors duration-300`}>Let our team build a tailored roadmap for smart inventory, merchandising, and fulfillment.</p>
+          </div>
+          <button
+            onClick={() => navigate('/about')}
+            className="bg-primary hover:bg-accent text-white px-7 py-3 rounded-md font-medium transition-colors cursor-pointer"
+          >
+            Talk to a Specialist
+          </button>
         </div>
       </div>
     </div>

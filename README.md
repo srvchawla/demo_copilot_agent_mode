@@ -89,6 +89,7 @@ To showcase extended capabilities:
 
 - [Detailed Architecture](./docs/architecture.md)
 - [Complete Demo Script](./docs/demo-script.md)
+- [Landing Page Revamp Summary](./docs/landing-page-revamp.md)
 
 ## 🎓 Pro Tips for Solution Engineers
 
