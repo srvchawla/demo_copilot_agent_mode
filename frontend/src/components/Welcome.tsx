@@ -73,7 +73,7 @@ export default function Welcome() {
                       onClick={() => navigate('/about')}
                       className={`px-7 py-3 rounded-md font-medium border ${darkMode ? 'border-white/60 text-white hover:border-white' : 'border-gray-400 text-gray-700 hover:border-gray-600'} transition-colors cursor-pointer`}
                     >
-                      Schedule a Demo
+                      Learn About Us
                     </button>
                   </div>
                   <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-5 text-sm">
@@ -260,7 +260,7 @@ export default function Welcome() {
             onClick={() => navigate('/about')}
             className="bg-primary hover:bg-accent text-white px-7 py-3 rounded-md font-medium transition-colors cursor-pointer"
           >
-            Talk to a Specialist
+            Explore Our Approach
           </button>
         </div>
       </div>
